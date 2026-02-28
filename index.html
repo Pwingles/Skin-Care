@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STRATUM — Evidence-Based Skincare</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 52px;
+      padding-top: var(--nav-h);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 75% 45%, rgba(200,169,110,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,169,110,0.03) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.63rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 44px; height: 1px;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+    .hero h1 {
+      max-width: 860px;
+      margin-bottom: 28px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub {
+      max-width: 460px;
+      font-size: 0.9875rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 52px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.9; } }
+
+    /* ── Intro ── */
+    .intro {
+      padding: 160px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .intro-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      font-style: italic;
+      color: var(--text);
+      max-width: 680px;
+      margin: 0 auto 20px;
+      line-height: 1.5;
+    }
+    .divider-center { margin: 32px auto; }
+    .intro p { max-width: 540px; margin: 0 auto; font-size: 0.9375rem; }
+
+    /* ── Pillars ── */
+    .pillars { padding: 120px 0; }
+    .pillars-head { margin-bottom: 72px; }
+    .pillar-card {
+      padding: 48px 38px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: var(--trans);
+    }
+    .pillar-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease);
+    }
+    .pillar-card:hover { border-color: var(--gold-border); background: var(--card-hover); }
+    .pillar-card:hover::after { transform: scaleX(1); }
+    .pillar-num {
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      color: var(--text-dim);
+      line-height: 1;
+      margin-bottom: 24px;
+      opacity: 0.35;
+    }
+    .pillar-card h3 { font-size: 1.7rem; margin-bottom: 14px; }
+    .pillar-card p { font-size: 0.875rem; margin-bottom: 32px; }
+    .pillar-link {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: gap var(--trans);
+    }
+    .pillar-link:hover { gap: 16px; }
+    .pillar-link::after { content: '→'; }
+
+    /* ── Numbers banner ── */
+    .numbers { padding: 80px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .number-item {
+      padding: 40px 32px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .number-item:last-child { border-right: none; }
+    .number-val {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .number-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+    /* ── Quiz Teaser ── */
+    .quiz-teaser { padding: 120px 0; }
+    .quiz-teaser-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .quiz-mockup {
+      position: relative;
+      height: 380px;
+    }
+    .mock-card {
+      position: absolute;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 32px;
+      left: 0; right: 0;
+    }
+    .mock-card:nth-child(1) { top: 0; right: 40px; z-index: 3; border-color: var(--gold-border); }
+    .mock-card:nth-child(2) { top: 24px; left: 20px; right: 20px; z-index: 2; opacity: 0.55; }
+    .mock-card:nth-child(3) { top: 48px; left: 40px; z-index: 1; opacity: 0.25; }
+    .mock-q { font-family: var(--font-display); font-size: 1.2rem; color: var(--text); margin-bottom: 22px; }
+    .mock-opts { display: flex; flex-direction: column; gap: 8px; }
+    .mock-opt {
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .mock-opt.sel { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+    @media (max-width: 960px) {
+      .hero { padding: 0 28px; padding-top: var(--nav-h); }
+      .quiz-teaser-inner { grid-template-columns: 1fr; gap: 48px; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+      .number-item:nth-child(2) { border-right: none; }
+      .number-item:nth-child(3) { border-top: 1px solid var(--border); }
+      .number-item:nth-child(4) { border-top: 1px solid var(--border); }
+    }
+    @media (max-width: 640px) {
+      .numbers-grid { grid-template-columns: 1fr; }
+      .number-item { border-right: none; border-top: 1px solid var(--border); }
+      .number-item:first-child { border-top: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Stratum</a>
+    <ul class="nav-links">
+      <li><a href="surface.html">The Routine</a></li>
+      <li><a href="advanced.html">Advanced</a></li>
+      <li><a href="protocol.html">Protocol</a></li>
+      <li><a href="quiz.html" class="nav-quiz">Start the Quiz</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">Evidence-Based Skincare</div>
+    <h1>Your skin,<br><em>finally</em> understood.</h1>
+    <p class="hero-sub">A complete protocol built on clinical research — not marketing. No guesswork, no overpriced trends. Just what the science actually supports.</p>
+    <div class="hero-actions">
+      <a href="quiz.html" class="btn btn-primary">Start Your Quiz</a>
+      <a href="surface.html" class="btn btn-outline">Explore the Routine</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Discover
+    </div>
+  </section>
+
+  <!-- Intro quote -->
+  <section class="intro">
+    <div class="container-sm">
+      <span class="section-label" style="display:block;text-align:center;">The Philosophy</span>
+      <p class="intro-quote">"Your skin is the largest organ in your body. It deserves science, not speculation."</p>
+      <div class="divider divider-center"></div>
+      <p>Most skincare advice is overcomplicated, overpriced, or simply not backed by research. This protocol cuts through the noise. Every product recommended, every technique explained, every step justified by clinical evidence.</p>
+    </div>
+  </section>
+
+  <!-- Numbers -->
+  <div class="numbers">
+    <div class="container">
+      <div class="numbers-grid">
+        <div class="number-item fade-up">
+          <div class="number-val">80%</div>
+          <div class="number-label">of visible aging comes from UV — not genetics</div>
+        </div>
+        <div class="number-item fade-up" style="transition-delay:0.1s">
+          <div class="number-val">44%</div>
+          <div class="number-label">reduction in fine lines from retinol in 12 weeks</div>
+        </div>
+        <div class="number-item fade-up" style="transition-delay:0.2s">
+          <div class="number-val">96%</div>
+          <div class="number-label">increase in skin hydration from hyaluronic acid</div>
+        </div>
+        <div class="number-item fade-up" style="transition-delay:0.3s">
+          <div class="number-val">8×</div>
+          <div class="number-label">Vitamin C effectiveness when paired with E + ferulic acid</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three Pillars -->
+  <section class="pillars">
+    <div class="container">
+      <div class="pillars-head fade-up">
+        <span class="section-label">The Protocol</span>
+        <h2>Three layers<br>of skin health</h2>
+      </div>
+      <div class="grid-3">
+        <div class="pillar-card fade-up">
+          <div class="pillar-num">01</div>
+          <h3>Surface Routine</h3>
+          <p>The foundation. Six precisely ordered steps — cleanse, protect, treat, repair, seal, and defend. Built on the exact ingredients and formulations clinical studies support.</p>
+          <a href="surface.html" class="pillar-link">The Daily Routine</a>
+        </div>
+        <div class="pillar-card fade-up" style="transition-delay:0.1s">
+          <div class="pillar-num">02</div>
+          <h3>Advanced Treatments</h3>
+          <p>Go beneath the surface. Red light therapy, microneedling, and EMS — the only methods proven to physically reverse aging at the cellular level, not just mask it.</p>
+          <a href="advanced.html" class="pillar-link">Explore Treatments</a>
+        </div>
+        <div class="pillar-card fade-up" style="transition-delay:0.2s">
+          <div class="pillar-num">03</div>
+          <h3>The Full Protocol</h3>
+          <p>Every product, every schedule, every detail. The complete week-by-week plan with Amazon links, so you can start immediately without wasting a single dollar.</p>
+          <a href="protocol.html" class="pillar-link">View the Protocol</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Teaser -->
+  <section class="quiz-teaser" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="quiz-teaser-inner">
+        <div class="quiz-mockup fade-up">
+          <div class="mock-card">
+            <p class="mock-q">What's your primary skin type?</p>
+            <div class="mock-opts">
+              <div class="mock-opt sel">Oily — shiny by midday</div>
+              <div class="mock-opt">Dry — tight or flaky</div>
+              <div class="mock-opt">Combination — oily T-zone</div>
+              <div class="mock-opt">Sensitive — reactive skin</div>
+            </div>
+          </div>
+          <div class="mock-card"></div>
+          <div class="mock-card"></div>
+        </div>
+        <div class="fade-up" style="transition-delay:0.15s">
+          <span class="section-label">Personalised</span>
+          <h2>Find your<br>exact routine</h2>
+          <div class="divider"></div>
+          <p style="margin-bottom:36px;">Five questions. A complete, personalised skincare protocol tailored to your skin type, concerns, and current habits. No upsells — just the science applied to you.</p>
+          <a href="quiz.html" class="btn btn-primary">Start the Quiz — Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">Stratum</a>
+        <p class="footer-note">For educational purposes only. Always consult a dermatologist for medical advice.</p>
+        <ul class="footer-links">
+          <li><a href="surface.html">Routine</a></li>
+          <li><a href="advanced.html">Advanced</a></li>
+          <li><a href="protocol.html">Protocol</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

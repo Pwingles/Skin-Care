@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Surface Routine — STRATUM</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Retinol night routine card */
+    .night-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+    .night-card {
+      padding: 36px;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+    .night-card-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .night-card h4 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 14px; }
+    .night-card ul { list-style: none; padding: 0; }
+    .night-card ul li {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .night-card ul li:last-child { border-bottom: none; }
+    .night-card ul li::before { content: ''; display: block; width: 4px; height: 4px; background: var(--gold); opacity: 0.6; flex-shrink: 0; border-radius: 50%; }
+    .step-strong { color: var(--text); font-weight: 500; }
+    @media (max-width: 960px) { .night-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Stratum</a>
+    <ul class="nav-links">
+      <li><a href="surface.html" class="active">The Routine</a></li>
+      <li><a href="advanced.html">Advanced</a></li>
+      <li><a href="protocol.html">Protocol</a></li>
+      <li><a href="quiz.html" class="nav-quiz">Start the Quiz</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <p class="page-hero-label">Steps 01 — 06</p>
+    <h1>The Surface<br>Routine</h1>
+    <p>Six precisely ordered steps — morning and evening. Each one validated by clinical evidence. Together, they form the unbreakable foundation of every high-performing skincare protocol.</p>
+  </div>
+
+  <!-- ── STEP 01: CLEANSE ── -->
+  <section class="step-section">
+    <div class="container">
+      <div class="step-inner fade-up">
+        <div class="step-content">
+          <div class="step-num-wrap">
+            <div class="step-num">01</div>
+            <span class="step-name">Foundation</span>
+          </div>
+          <h2>Cleansing</h2>
+          <p><span class="step-strong">Night cleansing is non-negotiable. Morning is optional.</span> Most people do this backwards — washing twice daily strips the skin's protective barrier, leading to 40–60% faster moisture loss and slower recovery.</p>
+          <p>The rule: if you worked out or woke up genuinely oily, cleanse in the morning. Otherwise, skip it and protect what your skin built overnight.</p>
+          <ul>
+            <li>Look for ceramides, fatty acids, or cholesterol</li>
+            <li>Avoid sulfates, fragrances, and bar soaps</li>
+            <li>Oily or acne-prone → foaming cleanser</li>
+            <li>Dry or sensitive → non-foaming hydrating cleanser</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>Harsh cleansers raise your skin's pH above its optimal 4.5–5.5 range. This disrupts the acid mantle, collapses lipid bilayers, and studies confirm it causes 40–60% faster transepidermal water loss — directly sabotaging everything else you apply.</p>
+          </div>
+        </div>
+        <div>
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Oily / Acne-Prone</span>
+              <div class="product-name">Foaming Facial Cleanser</div>
+              <div class="product-brand">CeraVe</div>
+              <p class="product-desc">Removes excess oil without stripping. Contains ceramides, hyaluronic acid, and niacinamide. Non-comedogenic, fragrance-free.</p>
+              <a href="https://amzn.to/3OfX9Vr" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Oily / Acne-Prone</span>
+              <div class="product-name">Effaclar Purifying Foaming Gel</div>
+              <div class="product-brand">La Roche-Posay</div>
+              <p class="product-desc">Dermatologist-tested gel cleanser. Removes excess sebum and impurities without over-drying sensitive, acne-prone skin.</p>
+              <a href="https://amzn.to/4bIET0S" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Dry / Sensitive</span>
+              <div class="product-name">Hydrating Facial Cleanser</div>
+              <div class="product-brand">CeraVe</div>
+              <p class="product-desc">Non-foaming formula that cleans while preserving moisture. Three essential ceramides + hyaluronic acid. MVE delivery technology.</p>
+              <a href="https://amzn.to/45Wn4aO" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Dry / Sensitive</span>
+              <div class="product-name">Toleriane Hydrating Gentle Cleanser</div>
+              <div class="product-brand">La Roche-Posay</div>
+              <p class="product-desc">Ultra-gentle, soap-free formula with ceramides, niacinamide, and prebiotic thermal water. Developed for reactive skin.</p>
+              <a href="https://amzn.to/4rcEIji" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 02: VITAMIN C ── -->
+  <section class="step-section" style="background:var(--surface);">
+    <div class="container">
+      <div class="step-inner fade-up" style="direction:rtl;">
+        <div class="step-content" style="direction:ltr;">
+          <div class="step-num-wrap">
+            <div class="step-num">02</div>
+            <span class="step-name">Morning Protection</span>
+          </div>
+          <h2>Vitamin C Serum</h2>
+          <p>Applied after cleansing, before moisturizer. This is your daily armor against oxidative damage. Every day, UV rays, pollution, and stress attack your skin — breaking down collagen, triggering free radical cascades, and accelerating aging. Vitamin C neutralizes that damage before it accumulates.</p>
+          <p>Even better: it actively stimulates new collagen production, smoothing fine lines over time — not just preventing new ones.</p>
+          <ul>
+            <li>Use L-ascorbic acid — the most researched, most effective form</li>
+            <li>15–20% concentration is the clinical sweet spot</li>
+            <li>Must be combined with Vitamin E + ferulic acid for 8× effectiveness and stability</li>
+            <li>If it turns brown, it's oxidized — replace it</li>
+            <li>Store refrigerated or in a dark glass bottle</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>Studies show combining L-ascorbic acid with Vitamin E and ferulic acid increases antioxidant effectiveness by up to 8× and prevents oxidation — the primary failure mode of most Vitamin C serums on the market.</p>
+          </div>
+        </div>
+        <div style="direction:ltr;">
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Gold Standard</span>
+              <div class="product-name">C E Ferulic Serum</div>
+              <div class="product-brand">SkinCeuticals</div>
+              <p class="product-desc">The exact formulation used in most clinical studies. L-ascorbic acid 15% + Vitamin E 1% + ferulic acid 0.5%. The benchmark everything else is measured against.</p>
+              <a href="https://amzn.to/4qk6Qzp" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Best Value</span>
+              <div class="product-name">Vitamin C + E + Ferulic Acid Serum</div>
+              <div class="product-brand">Brandefy</div>
+              <p class="product-desc">Same core actives as premium alternatives. Solid science, accessible price point. A genuinely good option without the premium markup.</p>
+              <a href="https://amzn.to/4aalOSw" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 03: AZELAIC ACID ── -->
+  <section class="step-section">
+    <div class="container">
+      <div class="step-inner fade-up">
+        <div class="step-content">
+          <div class="step-num-wrap">
+            <div class="step-num">03</div>
+            <span class="step-name">Targeted Treatment</span>
+          </div>
+          <h2>Azelaic Acid <span style="font-size:1.1rem;color:var(--text-muted);font-style:italic;">(conditional)</span></h2>
+          <p>Only if you're dealing with dark spots, post-acne marks, melasma, or redness. Skip this step if you have none of these concerns — you can always add it later. Applied in the morning after Vitamin C, before moisturizer.</p>
+          <p>Azelaic acid works on two levels: it blocks melanin production to fade pigmentation, and reduces inflammatory pathways that cause redness and rosacea.</p>
+          <ul>
+            <li>10% — over-the-counter, for mild pigmentation and redness</li>
+            <li>15–20% — prescription strength for stubborn melasma or rosacea</li>
+            <li>Unlike retinoids, does not increase UV sensitivity</li>
+            <li>Pairs synergistically with tretinoin for superior results</li>
+            <li>Well-tolerated even on sensitive skin</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>A 24-week study comparing 20% azelaic acid to 0.05% tretinoin for melasma found both equally effective at reducing pigmentation — but azelaic acid caused significantly less irritation, peeling, and redness, making it the safer first choice.</p>
+          </div>
+          <div class="note-box">
+            <p><strong>Skip this step if</strong> you have no pigmentation, dark spots, or redness concerns. It's not needed in a pure anti-aging or maintenance routine.</p>
+          </div>
+        </div>
+        <div>
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">OTC — Start Here</span>
+              <div class="product-name">10% Azelaic Acid Booster</div>
+              <div class="product-brand">Paula's Choice</div>
+              <p class="product-desc">The go-to over-the-counter option. Gel-cream formula that absorbs cleanly, works for mild hyperpigmentation, redness, and acne spots.</p>
+              <a href="https://amzn.to/4rxS9tG" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Rx-Strength Alternative</span>
+              <div class="product-name">Azelaic Acid 15% Gel</div>
+              <div class="product-brand">Finacea / Rx via Curology</div>
+              <p class="product-desc">Prescription-grade for persistent melasma or rosacea. Available through telehealth dermatology platforms like Curology without an in-person visit.</p>
+              <a href="https://pharmacy.amazon.com/FINACEA-15-FOAM/dp/B0846HBKQC?ref_=sr_1_1&keywords=Finacea+15%25+Azelaic+Acid&crid=1IF98QVH99MSL&sprefix=finacea+15%25+azelaic+acid%2Caps%2C218&dib_tag=se&dib=eyJ2IjoiMSJ9.0TphZEGhjT5-36nQqqoOBHW8VxKKP6gFl7B5zBIkdZxj2pqlm3l7CPxcFP_Y2SZV3YKpUjlQsZz8jk8qnLrz1opKA3zra8rIibAhXh2p2pUblHxEGShcHlt6y-X6Q-s-IsoIsSyAppPeXu5ilnsz_-Fkuw7-g_Jk-_Qoc2MPh7u8kdu4C2Q0ADB0do8Otd0zJPTy2-uGTlhkZ9T0Z4s5lN-jH297fgGB4-NikOdeG63DMI2uU-cjRMla0rK2AH-pa7rcpyHzy4ak-zH_vicSiQ.t1D7LbF1zCkrHGdLOeRD5KMH52t9i9FEyYYHyRFl630&qid=1770563010&sr=8-1" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 04: NIACINAMIDE ── -->
+  <section class="step-section" style="background:var(--surface);">
+    <div class="container">
+      <div class="step-inner fade-up" style="direction:rtl;">
+        <div class="step-content" style="direction:ltr;">
+          <div class="step-num-wrap">
+            <div class="step-num">04</div>
+            <span class="step-name">Repair</span>
+          </div>
+          <h2>Niacinamide</h2>
+          <p>Vitamin B3 — one of the most studied and versatile ingredients in skincare. It fades dark spots, evens skin tone, reduces sebum production, and measurably strengthens your barrier so your skin holds onto moisture better over time.</p>
+          <p>It works on multiple pathways simultaneously, which is why it plays well with almost every other active in this protocol.</p>
+          <ul>
+            <li>2–5% — optimal for most skin types</li>
+            <li>Up to 10% — for oily skin or visibly enlarged pores</li>
+            <li>Above 10% causes irritation with zero additional benefit</li>
+            <li>Compatible with retinoids, Vitamin C, and azelaic acid</li>
+            <li>Can be built into your moisturizer (see CeraVe PM) to simplify the routine</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>Multiple peer-reviewed studies confirm 2–5% niacinamide reduces hyperpigmentation, sebum output, and pore appearance while measurably improving epidermal barrier function — making it one of the highest evidence-to-cost-ratio ingredients available.</p>
+          </div>
+        </div>
+        <div style="direction:ltr;">
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Sensitive Skin</span>
+              <div class="product-name">Mela B3 Serum</div>
+              <div class="product-brand">La Roche-Posay</div>
+              <p class="product-desc">5% niacinamide formulated specifically for sensitive skin with dark spots. Lightweight, dermatologist-tested, fragrance-free.</p>
+              <a href="https://amzn.to/4aiUm55" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">All-in-One</span>
+              <div class="product-name">PM Facial Moisturizing Lotion</div>
+              <div class="product-brand">CeraVe</div>
+              <p class="product-desc">4% niacinamide + ceramides built into a moisturizer. Combines steps 4 and 5 into a single product. Used nightly as part of the evening routine.</p>
+              <a href="https://amzn.to/3ZXZs1Y" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Pure Serum</span>
+              <div class="product-name">Niacinamide 10% + Zinc 1%</div>
+              <div class="product-brand">The Ordinary</div>
+              <p class="product-desc">High-strength 10% niacinamide with zinc for oily, blemish-prone skin. Affordable, minimal formula, no fragrance.</p>
+              <a href="https://amzn.to/3ZXZs1Y" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 05: MOISTURIZER ── -->
+  <section class="step-section">
+    <div class="container">
+      <div class="step-inner fade-up">
+        <div class="step-content">
+          <div class="step-num-wrap">
+            <div class="step-num">05</div>
+            <span class="step-name">Seal &amp; Protect</span>
+          </div>
+          <h2>Moisturizer</h2>
+          <p>After cleansing and applying actives, your skin is more vulnerable to moisture loss — up to 40–60% faster without a proper occlusive layer. Moisturizer seals every previous step in and rebuilds the lipid barrier your skin depends on.</p>
+          <p>The biggest mistake people make: choosing moisturizers with fragrances or alcohol. These actively damage the barrier you're trying to protect. The formula matters as much as the routine.</p>
+          <ul>
+            <li>Dry skin → rich ceramide cream with cholesterol and hyaluronic acid</li>
+            <li>Oily skin → lightweight non-comedogenic lotion</li>
+            <li>Apply while skin is slightly damp for optimal absorption</li>
+            <li>No fragrances, no alcohol, no unnecessary additives</li>
+          </ul>
+        </div>
+        <div>
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Dry Skin</span>
+              <div class="product-name">Moisturizing Cream</div>
+              <div class="product-brand">CeraVe</div>
+              <p class="product-desc">Three essential ceramides + hyaluronic acid + cholesterol. The same building blocks your skin barrier is naturally made of. Rich but non-greasy.</p>
+              <a href="https://amzn.to/4aDuJxi" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Oily / Normal</span>
+              <div class="product-name">Toleriane Double Repair Face Moisturizer</div>
+              <div class="product-brand">La Roche-Posay</div>
+              <p class="product-desc">Oil-free, non-comedogenic, lightweight formula with ceramide-3 and niacinamide. Designed for oily and normal skin types.</p>
+              <a href="https://amzn.to/4aBQ762" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 06: SUNSCREEN ── -->
+  <section class="step-section" style="background:var(--surface);">
+    <div class="container">
+      <div class="step-inner fade-up" style="direction:rtl;">
+        <div class="step-content" style="direction:ltr;">
+          <div class="step-num-wrap">
+            <div class="step-num">06</div>
+            <span class="step-name">Sun Defense</span>
+          </div>
+          <h2>Sunscreen</h2>
+          <p>Dermatology research estimates 80% of visible aging is caused by UV exposure — not genetics, not diet. But you don't need sunscreen every single day, and most advice gets this wrong.</p>
+          <p><span class="step-strong">The rule:</span> If you're going outside between 10am–4pm, wear it. Indoors all day? Skip it. Early morning sunlight (first 30–60 minutes after waking) is actually beneficial — UV levels are too low to damage skin but sufficient for circadian rhythm anchoring and vitamin D.</p>
+          <ul>
+            <li>Always choose <strong style="color:var(--text)">mineral sunscreen</strong> (zinc oxide or titanium dioxide)</li>
+            <li>Chemical filters (avobenzone, oxybenzone) have been detected in blood and breast milk after regular use</li>
+            <li>Mineral formulas sit on top of skin and physically block UV — they don't cross into the bloodstream</li>
+            <li>If you shower mid-day, re-apply your full morning routine</li>
+            <li>No sunscreen needed for pre-10am outdoor activity</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>Clinical trials have detected chemical sunscreen ingredients (avobenzone, oxybenzone, octocrylene) in blood plasma, urine, and breast milk after standard topical use — exceeding FDA thresholds requiring further safety data. Mineral alternatives have not shown this systemic absorption profile.</p>
+          </div>
+        </div>
+        <div style="direction:ltr;">
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Mineral SPF 50+</span>
+              <div class="product-name">Anthelios Mineral Ultra-Light Fluid SPF 50+</div>
+              <div class="product-brand">La Roche-Posay</div>
+              <p class="product-desc">100% mineral zinc oxide formula. Broad-spectrum UVA/UVB. Lightweight finish without the white cast of older mineral formulas. Thermal spring water base.</p>
+              <a href="https://amzn.to/3ZkjN1n" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Tinted Option</span>
+              <div class="product-name">100% Mineral Sunscreen SPF 50</div>
+              <div class="product-brand">EltaMD UV Clear</div>
+              <p class="product-desc">Zinc oxide + lightly tinted for a more even appearance. Oil-free, non-comedogenic, suitable for acne-prone and sensitive skin types.</p>
+              <a href="https://amzn.to/3ZkjN1n" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EVENING ROUTINE: RETINOIDS ── -->
+  <section class="step-section">
+    <div class="container">
+      <div class="fade-up" style="max-width:760px; margin-bottom:60px;">
+        <span class="section-label">Evening Protocol</span>
+        <h2>The Night Routine</h2>
+        <p style="margin-top:16px;">Nighttime is when your skin actually repairs itself. The evening protocol introduces the single most important anti-aging ingredient in existence — retinoids. But the sequence and frequency matter as much as the ingredient itself.</p>
+        <div class="science-box" style="margin-top:28px;">
+          <span class="science-label">Why Retinoids Are Different</span>
+          <p>Most skincare products only reach the epidermis — the outer layer. Retinoids penetrate into the dermis, where collagen is made and aging actually happens. A 12-week study found 0.3% retinol reduced fine lines by 44% and improved skin texture in 80% of participants. A tretinoin study showed 68% improvement in photoaging after 48 weeks. No other topical comes close.</p>
+        </div>
+      </div>
+
+      <div class="night-grid fade-up">
+        <div class="night-card">
+          <span class="night-card-label">Retinol Nights — Mon / Wed / Fri</span>
+          <h4>Active Night</h4>
+          <ul>
+            <li>Gentle cleanse</li>
+            <li>Hyaluronic acid serum (optional, for hydration)</li>
+            <li>Retinol (0.01–0.1% to start, build slowly)</li>
+            <li>Azelaic acid (if pigmentation concern)</li>
+            <li>CeraVe PM moisturizer (niacinamide + ceramides)</li>
+          </ul>
+        </div>
+        <div class="night-card" style="border-color:var(--border-mid);">
+          <span class="night-card-label">Recovery Nights — Tue / Thu / Sat / Sun</span>
+          <h4>Recovery Night</h4>
+          <ul>
+            <li>Gentle cleanse</li>
+            <li>Hyaluronic acid serum</li>
+            <li>Niacinamide serum or CeraVe PM</li>
+            <li>Rich moisturizer (let skin rebuild)</li>
+            <li>No actives — barrier recovery only</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:40px; display:flex; flex-direction:column; gap:14px; max-width:600px;" class="fade-up">
+        <p class="step-products-label" style="margin-bottom:4px;">Retinoid Products</p>
+        <div class="product-card">
+          <span class="product-tag">Start Here — OTC</span>
+          <div class="product-name">Resurfacing Retinol Serum</div>
+          <div class="product-brand">CeraVe</div>
+          <p class="product-desc">Encapsulated retinol for controlled, gradual release. Formulated with licorice root and niacinamide to minimize irritation. The recommended starting point.</p>
+          <a href="https://amzn.to/4rxS9tG" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">After 3–6 Months — Rx</span>
+          <div class="product-name">Tretinoin Cream (0.025–0.05%)</div>
+          <div class="product-brand">Rx via Dermatologist / Curology / Hims</div>
+          <p class="product-desc">The gold standard. Prescription-only tretinoin is the most clinically validated retinoid. Available through telehealth platforms around $30/month after building retinol tolerance.</p>
+          <a href="https://health.amazon.com/onemedical/Anti-aging-anti-wrinkle-skin-care-treatment/dp/B0BYLJJGNG?ref_=amzcl_pd_sl_srctrm_OCI_C800_e_DXY095_BSZ226_nyny_26_dev_c&hvocijid=685067002911658858--&hvexpln=246" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            Search on Amazon
+          </a>
+        </div>
+        <div class="note-box">
+          <p><strong>Retinoid warning:</strong> Retinoids significantly increase UV sensitivity. Only apply at night, never in the morning. Expect 1–2 weeks of purging (redness, peeling) when starting — this is normal. Do not use if pregnant or planning pregnancy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:80px 0; text-align:center; background:var(--surface); border-top:1px solid var(--border);">
+    <div class="container-sm fade-up">
+      <span class="section-label" style="text-align:center;display:block;">What's Next</span>
+      <h2 style="margin-bottom:20px;">Ready to go deeper?</h2>
+      <p style="margin-bottom:44px;">The surface routine protects and repairs from the outside. Advanced treatments reverse aging at the cellular level — from within.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="advanced.html" class="btn btn-primary">Advanced Treatments</a>
+        <a href="quiz.html" class="btn btn-outline">Take the Skin Quiz</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">Stratum</a>
+        <p class="footer-note">For educational purposes only. Always consult a dermatologist for medical advice.</p>
+        <ul class="footer-links">
+          <li><a href="surface.html">Routine</a></li>
+          <li><a href="advanced.html">Advanced</a></li>
+          <li><a href="protocol.html">Protocol</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

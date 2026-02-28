@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Treatments — STRATUM</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .treatment-section {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .treatment-section:last-of-type { border-bottom: none; }
+    .treatment-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .treatment-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .treatment-badge::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+    .treatment-content h2 { margin-bottom: 18px; }
+    .treatment-content p { margin-bottom: 16px; }
+    .treatment-content ul { list-style: none; padding: 0; margin: 16px 0; }
+    .treatment-content ul li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 9px;
+      line-height: 1.65;
+    }
+    .treatment-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.5; }
+
+    /* Protocol card */
+    .protocol-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 32px;
+    }
+    .protocol-card-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .protocol-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .protocol-row:last-child { border-bottom: none; }
+    .protocol-key { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.04em; }
+    .protocol-val {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--gold);
+    }
+
+    /* Needle depth visual */
+    .depth-visual { margin: 28px 0; }
+    .depth-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .depth-row:last-child { border-bottom: none; }
+    .depth-mm {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--gold);
+      width: 55px;
+      flex-shrink: 0;
+    }
+    .depth-bar-wrap { flex: 1; height: 2px; background: var(--border-mid); }
+    .depth-bar { height: 100%; background: var(--gold); }
+    .depth-info { display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; min-width: 160px; text-align: right; }
+    .depth-title { font-size: 0.78rem; color: var(--text); }
+    .depth-freq { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.06em; }
+
+    /* Wavelength badge */
+    .wavelength-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--gold-border);
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    .wavelength-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    /* EMS zones */
+    .zone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+    .zone-item {
+      padding: 14px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .zone-item::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    .amplifier-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 28px;
+      margin-top: 28px;
+    }
+    .amplifier-box-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .amplifier-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .amplifier-item:last-child { border-bottom: none; }
+    .amplifier-item h5 { font-size: 0.9rem; margin-bottom: 6px; font-family: var(--font-body); font-weight: 500; color: var(--text); }
+    .amplifier-item p { font-size: 0.8rem; }
+
+    @media (max-width: 960px) {
+      .treatment-inner { grid-template-columns: 1fr; gap: 48px; }
+      .depth-info { min-width: 120px; }
+    }
+    @media (max-width: 640px) {
+      .zone-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Stratum</a>
+    <ul class="nav-links">
+      <li><a href="surface.html">The Routine</a></li>
+      <li><a href="advanced.html" class="active">Advanced</a></li>
+      <li><a href="protocol.html">Protocol</a></li>
+      <li><a href="quiz.html" class="nav-quiz">Start the Quiz</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <p class="page-hero-label">Beyond the Surface</p>
+    <h1>Beneath the<br>Skin</h1>
+    <p>The surface routine protects and repairs. These three treatments go deeper — physically stimulating your skin to rebuild collagen and reverse aging from within. This is what separates good skin from extraordinary skin.</p>
+  </div>
+
+  <!-- Intro context -->
+  <section style="padding:80px 0; border-bottom:1px solid var(--border);">
+    <div class="container-sm">
+      <div class="fade-up">
+        <span class="section-label">Why Advanced Treatments</span>
+        <h2 style="margin-bottom:20px;">The limitation of topicals</h2>
+        <p>Every topical skincare product has a fundamental ceiling — most can only reach the epidermis, the outermost skin layer. They hydrate, protect, and repair the surface. But they cannot penetrate deep enough into the dermis to stimulate meaningful collagen remodeling or muscle maintenance.</p>
+        <p style="margin-top:16px;">Advanced treatments bypass this limit entirely. They work through controlled injury, photobiomodulation, and electrical stimulation — triggering your body's own deep repair mechanisms. These are the only methods clinically proven to physically reverse visible aging, not just slow it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TREATMENT 01: RED LIGHT THERAPY ── -->
+  <section class="treatment-section">
+    <div class="container">
+      <div class="treatment-inner fade-up">
+        <div class="treatment-content">
+          <div class="treatment-badge">Treatment 01</div>
+          <h2>Red Light Therapy</h2>
+          <p>One of the few advanced treatments with serious, replicated research behind it. Red light (photobiomodulation) uses specific wavelengths to penetrate deep into the dermis, stimulating mitochondria in your skin cells to produce more energy — which accelerates collagen synthesis, reduces inflammation, and speeds cellular repair.</p>
+          <p>Critically: it doesn't work the same way as topicals. While retinoids stimulate collagen from the epidermis downward, red light stimulates it from within the dermis outward — making them genuinely complementary, not redundant.</p>
+          <ul>
+            <li>2–3 sessions per week, 10–15 minutes each</li>
+            <li>48–72 hours minimum rest between sessions</li>
+            <li>Daily use can increase oxidative stress — counterproductive</li>
+            <li>Allow 8–12 weeks for measurable collagen changes</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Study</span>
+            <p>Participants using red light masks twice weekly for 3 months showed: 38.3% reduction in crow's feet wrinkles, 24.8% reduction in skin sagging, 32.8% reduction in pore size, and 34.9% improvement in skin homogeneity. All key markers of skin health.</p>
+          </div>
+
+          <p style="margin-top:24px;"><strong style="color:var(--text);">Effective wavelengths:</strong></p>
+          <div style="margin-top:12px;">
+            <div class="wavelength-badge">
+              <div class="wavelength-dot" style="background:#ff6b6b;"></div>
+              630–660nm — Surface collagen
+            </div>
+            <div class="wavelength-badge">
+              <div class="wavelength-dot" style="background:#8b5cf6;"></div>
+              810–880nm — Deeper dermis penetration
+            </div>
+          </div>
+
+          <div class="amplifier-box">
+            <span class="amplifier-box-label">Amplification Protocol — Apply Before Session</span>
+            <div class="amplifier-item">
+              <h5>Copper Peptides</h5>
+              <p>When combined with red light in human fibroblast studies, collagen synthesis increased by 70% and growth factors by 230% compared to red light alone. Apply copper peptide serum to clean skin 2–3 minutes before your session.</p>
+            </div>
+            <div class="amplifier-item">
+              <h5>Green Tea Extract</h5>
+              <p>A pilot study applying green tea-soaked pads for 20 minutes before a red light session showed measurable wrinkle and crow's feet reduction at 4 weeks. Small study, but low-risk to test if you have green tea available.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="step-products-label">Recommended Devices</p>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+            <div class="product-card">
+              <span class="product-tag">Face Mask</span>
+              <div class="product-name">LED Face Mask</div>
+              <div class="product-brand">CurrentBody / Omnilux</div>
+              <p class="product-desc">Clinically validated LED masks with both 630nm and 830nm wavelengths. FDA-cleared. The category leaders for at-home use.</p>
+              <a href="https://amzn.to/3Mafp1Z" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Panel — Full Face</span>
+              <div class="product-name">Red Light Therapy Panel</div>
+              <div class="product-brand">Mito Red / Joovv</div>
+              <p class="product-desc">Higher irradiance than masks, good for full-face and neck coverage. More effective for deeper tissue penetration at 850nm.</p>
+              <a href="https://amzn.to/3Mafp1Z" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+          <div class="protocol-card">
+            <span class="protocol-card-label">Weekly Protocol</span>
+            <div class="protocol-row"><span class="protocol-key">Sessions per week</span><span class="protocol-val">2–3</span></div>
+            <div class="protocol-row"><span class="protocol-key">Duration per session</span><span class="protocol-val">10–15 min</span></div>
+            <div class="protocol-row"><span class="protocol-key">Rest between sessions</span><span class="protocol-val">48–72 hrs</span></div>
+            <div class="protocol-row"><span class="protocol-key">Results timeline</span><span class="protocol-val">8–12 weeks</span></div>
+            <div class="protocol-row"><span class="protocol-key">Best time</span><span class="protocol-val">Evenings</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TREATMENT 02: MICRONEEDLING ── -->
+  <section class="treatment-section" style="background:var(--surface);">
+    <div class="container">
+      <div class="treatment-inner fade-up" style="direction:rtl;">
+        <div class="treatment-content" style="direction:ltr;">
+          <div class="treatment-badge">Treatment 02</div>
+          <h2>Microneedling</h2>
+          <p>One of the most effective treatments for acne scars, deep wrinkles, and skin texture. Tiny needles create controlled punctures that trigger a wound-healing cascade — flooding the area with growth factors, collagen, and elastin to rebuild the dermis from the inside out.</p>
+          <p>Unlike topicals that sit on the surface and unlike red light that uses energy, microneedling physically forces your dermis to regenerate. This is why it produces results topicals simply cannot replicate.</p>
+          <ul>
+            <li>Do not microneedle over active acne or open wounds</li>
+            <li>Always sanitize your device before every session</li>
+            <li>Start at lower depths — build tolerance first</li>
+            <li>Real collagen remodeling takes 4–6 weeks post-session</li>
+            <li>Wear sunscreen for 5–7 days post-treatment, even indoors</li>
+            <li>3–6 sessions spaced 4–6 weeks apart for significant scar improvement</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Study</span>
+            <p>A 12-study meta-analysis found microneedling at 1.5mm depth reduced acne scars by 62% and increased collagen density by 400%. Results compound significantly across multiple sessions over 6+ months.</p>
+          </div>
+
+          <p style="margin-top:24px; margin-bottom:16px;"><strong style="color:var(--text);">Needle Depth Guide:</strong></p>
+          <div class="depth-visual">
+            <div class="depth-row">
+              <div class="depth-mm">0.25mm</div>
+              <div class="depth-bar-wrap"><div class="depth-bar" style="width:17%;"></div></div>
+              <div class="depth-info">
+                <div class="depth-title">Surface boost</div>
+                <div class="depth-freq">2–3× per week</div>
+              </div>
+            </div>
+            <div class="depth-row">
+              <div class="depth-mm">0.5mm</div>
+              <div class="depth-bar-wrap"><div class="depth-bar" style="width:33%;"></div></div>
+              <div class="depth-info">
+                <div class="depth-title">Mild collagen, texture</div>
+                <div class="depth-freq">Once every 2–4 weeks</div>
+              </div>
+            </div>
+            <div class="depth-row">
+              <div class="depth-mm">1–1.5mm</div>
+              <div class="depth-bar-wrap"><div class="depth-bar" style="width:100%;"></div></div>
+              <div class="depth-info">
+                <div class="depth-title">Deep remodeling, scars</div>
+                <div class="depth-freq">Professional only</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <p><strong>Warning:</strong> Do not use a contaminated device. Needles puncture into the dermis — a dirty roller injects bacteria directly into the skin. Replace needles after every 3–5 uses and sterilize with 70% isopropyl alcohol before each session.</p>
+          </div>
+        </div>
+
+        <div style="direction:ltr;">
+          <p class="step-products-label">Recommended Devices</p>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+            <div class="product-card">
+              <span class="product-tag">At-Home — Start Here</span>
+              <div class="product-name">Derma Roller 0.25mm / 0.5mm</div>
+              <div class="product-brand">Sdara / Tula</div>
+              <p class="product-desc">Titanium-coated roller for at-home use. Start at 0.25mm to build tolerance, progress to 0.5mm after 2–3 months. Always replace the head.</p>
+              <a href="https://amzn.to/4rAAYHT" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Derma Pen — At Home</span>
+              <div class="product-name">Dr. Pen Microneedling Pen</div>
+              <div class="product-brand">Dr. Pen A6 / A7</div>
+              <p class="product-desc">Electric microneedling pen with adjustable depth 0.25–2.5mm. More precise than a roller. Adjust to 0.5mm for at-home use only.</p>
+              <a href="https://amzn.to/4rAAYHT" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+          <div class="protocol-card">
+            <span class="protocol-card-label">At-Home Protocol (0.5mm)</span>
+            <div class="protocol-row"><span class="protocol-key">Frequency</span><span class="protocol-val">Every 2–4 weeks</span></div>
+            <div class="protocol-row"><span class="protocol-key">Sessions for scars</span><span class="protocol-val">3–6 sessions</span></div>
+            <div class="protocol-row"><span class="protocol-key">Post-treatment window</span><span class="protocol-val">48–72 hrs recovery</span></div>
+            <div class="protocol-row"><span class="protocol-key">SPF required after</span><span class="protocol-val">5–7 days</span></div>
+            <div class="protocol-row"><span class="protocol-key">Results visible</span><span class="protocol-val">4–6 weeks after</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TREATMENT 03: EMS ── -->
+  <section class="treatment-section">
+    <div class="container">
+      <div class="treatment-inner fade-up">
+        <div class="treatment-content">
+          <div class="treatment-badge">Treatment 03</div>
+          <h2>Facial EMS</h2>
+          <p>Electrical Muscle Stimulation. Both red light and microneedling address the dermis. EMS addresses something they can't — the muscle layer beneath the skin.</p>
+          <p>As you age, facial muscles thin out, weaken, and lose tone. When that scaffolding weakens, even healthy skin begins to sag. EMS uses low-level electrical pulses to contract and strengthen facial muscles — like resistance training for your face — lifting the tissue sitting on top of them.</p>
+          <p>This is most relevant for targeting visible sagging, jawline definition, and volume loss — concerns that no topical or collagen-stimulating treatment alone can address.</p>
+          <ul>
+            <li>5 sessions per week, 20 minutes per session</li>
+            <li>Do not exceed 20 minutes per session</li>
+            <li>Target all four primary zones in each session</li>
+            <li>Results compound over 8–12 weeks of consistent use</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Study</span>
+            <p>A clinical study with participants using facial EMS five times per week found: 17% increase in facial muscle thickness, measurable reduction in facial sagging, and improved jawline definition. The mechanism is muscle strengthening, not skin tightening.</p>
+          </div>
+
+          <p style="margin-top:24px; margin-bottom:14px;"><strong style="color:var(--text);">Target Zones:</strong></p>
+          <div class="zone-grid">
+            <div class="zone-item">Cheeks</div>
+            <div class="zone-item">Jawline</div>
+            <div class="zone-item">Forehead</div>
+            <div class="zone-item">Around the eyes</div>
+          </div>
+
+          <div class="note-box" style="margin-top:24px;">
+            <p><strong>Do not use EMS if:</strong> you have a pacemaker, electrical implants, metal plates in your face, active skin infections, or open wounds.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="step-products-label">Recommended Devices</p>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+            <div class="product-card">
+              <span class="product-tag">Premium</span>
+              <div class="product-name">NuFACE Trinity Facial Toning Device</div>
+              <div class="product-brand">NuFACE</div>
+              <p class="product-desc">FDA-cleared facial toning device. Pre-programmed sessions targeting all four facial zones. The most clinically studied consumer EMS device for facial muscle toning.</p>
+              <a href="https://amzn.to/4rAAYHT" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Mid-Range</span>
+              <div class="product-name">ZIIP Halo Device</div>
+              <div class="product-brand">ZIIP</div>
+              <p class="product-desc">Combines EMS with nanocurrent. Lightweight, quiet, app-guided protocols for targeted facial zones. Good for consistent daily use.</p>
+              <a href="https://amzn.to/4rAAYHT" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+          <div class="protocol-card">
+            <span class="protocol-card-label">Weekly Protocol</span>
+            <div class="protocol-row"><span class="protocol-key">Sessions per week</span><span class="protocol-val">5</span></div>
+            <div class="protocol-row"><span class="protocol-key">Duration per session</span><span class="protocol-val">20 min</span></div>
+            <div class="protocol-row"><span class="protocol-key">Zones per session</span><span class="protocol-val">All 4</span></div>
+            <div class="protocol-row"><span class="protocol-key">Visible results</span><span class="protocol-val">8–12 weeks</span></div>
+            <div class="protocol-row"><span class="protocol-key">Best for</span><span class="protocol-val">Sagging, jawline</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:80px 0; text-align:center; background:var(--surface); border-top:1px solid var(--border);">
+    <div class="container-sm fade-up">
+      <span class="section-label" style="display:block;text-align:center;">The Complete Picture</span>
+      <h2 style="margin-bottom:20px;">See the full protocol</h2>
+      <p style="margin-bottom:44px;">Every product, every schedule, every detail — the complete week-by-week plan with Amazon links and dosing notes from the protocol document.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="protocol.html" class="btn btn-primary">View the Full Protocol</a>
+        <a href="quiz.html" class="btn btn-outline">Take the Skin Quiz</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">Stratum</a>
+        <p class="footer-note">For educational purposes only. Always consult a dermatologist for medical advice.</p>
+        <ul class="footer-links">
+          <li><a href="surface.html">Routine</a></li>
+          <li><a href="advanced.html">Advanced</a></li>
+          <li><a href="protocol.html">Protocol</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

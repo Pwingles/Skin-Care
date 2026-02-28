@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skin Quiz — STRATUM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Stratum</a>
+    <ul class="nav-links">
+      <li><a href="surface.html">The Routine</a></li>
+      <li><a href="advanced.html">Advanced</a></li>
+      <li><a href="protocol.html">Protocol</a></li>
+    </ul>
+  </nav>
+
+  <div class="quiz-page">
+    <div class="quiz-container">
+
+      <!-- Progress -->
+      <div class="quiz-progress" id="quiz-progress">
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="quiz-progress-label" id="progress-label">1 of 5</span>
+      </div>
+
+      <!-- Q1: Skin Type -->
+      <div class="quiz-slide active" data-question="0">
+        <p class="quiz-q">What best describes your skin type?</p>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-value="oily">
+            <span class="quiz-opt-label">Oily</span>
+            <span class="quiz-opt-desc">Shiny by midday, visible pores, tends to break out</span>
+          </div>
+          <div class="quiz-opt" data-value="dry">
+            <span class="quiz-opt-label">Dry</span>
+            <span class="quiz-opt-desc">Feels tight or flaky, rarely gets shiny</span>
+          </div>
+          <div class="quiz-opt" data-value="combo">
+            <span class="quiz-opt-label">Combination</span>
+            <span class="quiz-opt-desc">Oily T-zone (forehead, nose) but drier cheeks</span>
+          </div>
+          <div class="quiz-opt" data-value="sensitive">
+            <span class="quiz-opt-label">Sensitive</span>
+            <span class="quiz-opt-desc">Reacts easily — redness, stinging, or irritation prone</span>
+          </div>
+        </div>
+        <div class="quiz-actions">
+          <span></span>
+          <button class="btn btn-primary" id="next-0" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q2: Primary Concern -->
+      <div class="quiz-slide" data-question="1">
+        <p class="quiz-q">What's your biggest skin concern right now?</p>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-value="acne">
+            <span class="quiz-opt-label">Acne &amp; Breakouts</span>
+            <span class="quiz-opt-desc">Pimples, whiteheads, blackheads, or persistent congestion</span>
+          </div>
+          <div class="quiz-opt" data-value="pigmentation">
+            <span class="quiz-opt-label">Dark Spots &amp; Pigmentation</span>
+            <span class="quiz-opt-desc">Post-acne marks, uneven tone, melasma, or sun damage</span>
+          </div>
+          <div class="quiz-opt" data-value="aging">
+            <span class="quiz-opt-label">Fine Lines &amp; Aging</span>
+            <span class="quiz-opt-desc">Wrinkles, loss of firmness, texture, or dullness</span>
+          </div>
+          <div class="quiz-opt" data-value="redness">
+            <span class="quiz-opt-label">Redness &amp; Irritation</span>
+            <span class="quiz-opt-desc">Flushing, rosacea, sensitised skin, or rough texture</span>
+          </div>
+        </div>
+        <div class="quiz-actions">
+          <button class="quiz-back" id="back-1">&larr; Back</button>
+          <button class="btn btn-primary" id="next-1" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q3: Midday Feel -->
+      <div class="quiz-slide" data-question="2">
+        <p class="quiz-q">How does your skin feel by noon?</p>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-value="very-oily">
+            <span class="quiz-opt-label">Very oily — full shine</span>
+            <span class="quiz-opt-desc">Needs blotting, looks greasy across the face</span>
+          </div>
+          <div class="quiz-opt" data-value="tzone">
+            <span class="quiz-opt-label">T-zone shine only</span>
+            <span class="quiz-opt-desc">Forehead and nose shine, cheeks are fine</span>
+          </div>
+          <div class="quiz-opt" data-value="balanced">
+            <span class="quiz-opt-label">Comfortable and balanced</span>
+            <span class="quiz-opt-desc">No noticeable shine, no tightness</span>
+          </div>
+          <div class="quiz-opt" data-value="tight">
+            <span class="quiz-opt-label">Tight or dry</span>
+            <span class="quiz-opt-desc">Feels parched, may flake around nose or cheeks</span>
+          </div>
+        </div>
+        <div class="quiz-actions">
+          <button class="quiz-back" id="back-2">&larr; Back</button>
+          <button class="btn btn-primary" id="next-2" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q4: Breakouts -->
+      <div class="quiz-slide" data-question="3">
+        <p class="quiz-q">How often do you currently break out?</p>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-value="often">
+            <span class="quiz-opt-label">Often</span>
+            <span class="quiz-opt-desc">Multiple times per month or almost constantly</span>
+          </div>
+          <div class="quiz-opt" data-value="sometimes">
+            <span class="quiz-opt-label">Sometimes</span>
+            <span class="quiz-opt-desc">Occasionally, often linked to hormones or stress</span>
+          </div>
+          <div class="quiz-opt" data-value="rarely">
+            <span class="quiz-opt-label">Rarely</span>
+            <span class="quiz-opt-desc">Only under significant stress or hormonal shifts</span>
+          </div>
+          <div class="quiz-opt" data-value="never">
+            <span class="quiz-opt-label">Never</span>
+            <span class="quiz-opt-desc">Can't remember my last breakout</span>
+          </div>
+        </div>
+        <div class="quiz-actions">
+          <button class="quiz-back" id="back-3">&larr; Back</button>
+          <button class="btn btn-primary" id="next-3" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Q5: Experience Level -->
+      <div class="quiz-slide" data-question="4">
+        <p class="quiz-q">Where are you starting from with skincare?</p>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-value="beginner">
+            <span class="quiz-opt-label">Starting Fresh</span>
+            <span class="quiz-opt-desc">Currently using very little or nothing at all</span>
+          </div>
+          <div class="quiz-opt" data-value="basic">
+            <span class="quiz-opt-label">The Basics</span>
+            <span class="quiz-opt-desc">Cleanser, moisturiser — maybe some SPF</span>
+          </div>
+          <div class="quiz-opt" data-value="intermediate">
+            <span class="quiz-opt-label">Some Actives</span>
+            <span class="quiz-opt-desc">Using serums, Vitamin C, or occasional retinol</span>
+          </div>
+          <div class="quiz-opt" data-value="advanced">
+            <span class="quiz-opt-label">Full Routine</span>
+            <span class="quiz-opt-desc">Comfortable with multiple actives morning and night</span>
+          </div>
+        </div>
+        <div class="quiz-actions">
+          <button class="quiz-back" id="back-4">&larr; Back</button>
+          <button class="btn btn-primary" id="next-4" disabled>See My Routine &rarr;</button>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="quiz-results" id="quiz-results">
+        <div style="margin-bottom:40px;">
+          <span class="section-label" style="display:block;">Your Personalised Protocol</span>
+        </div>
+        <div class="result-headline" id="result-headline"></div>
+        <p class="result-sub" id="result-sub"></p>
+
+        <div class="result-steps" id="result-steps">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="note-box" style="margin-bottom:40px;">
+          <p><strong>Remember:</strong> Introduce one new active at a time. Give each product 4–6 weeks before judging results. Consistency over intensity — always.</p>
+        </div>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="surface.html" class="btn btn-primary">Explore the Full Routine</a>
+          <a href="protocol.html" class="btn btn-outline">View the Protocol</a>
+        </div>
+
+        <button class="quiz-back" id="restart" style="margin-top:32px; display:block;">Retake the Quiz</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

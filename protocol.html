@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Full Protocol — STRATUM</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+    }
+    .schedule-table td:first-child { font-family: var(--font-display); font-size: 1rem; color: var(--text); }
+    .schedule-table .active-col { color: var(--text); }
+    .schedule-table .rest-col { color: var(--text-muted); font-style: italic; }
+
+    /* Product category sections */
+    .product-category { padding: 64px 0; border-bottom: 1px solid var(--border); }
+    .product-category:last-of-type { border-bottom: none; }
+    .product-category-header { margin-bottom: 40px; }
+    .product-category-header h3 { margin-bottom: 10px; }
+    .product-category-header p { max-width: 560px; }
+
+    /* Note chips */
+    .note-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    /* Tips grid */
+    .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .tip-card {
+      padding: 32px 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+    .tip-icon {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .tip-card h5 { font-size: 1rem; margin-bottom: 10px; font-family: var(--font-display); font-size: 1.2rem; }
+    .tip-card p { font-size: 0.84rem; }
+
+    @media (max-width: 960px) {
+      .tips-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Stratum</a>
+    <ul class="nav-links">
+      <li><a href="surface.html">The Routine</a></li>
+      <li><a href="advanced.html">Advanced</a></li>
+      <li><a href="protocol.html" class="active">Protocol</a></li>
+      <li><a href="quiz.html" class="nav-quiz">Start the Quiz</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <p class="page-hero-label">The Complete Document</p>
+    <h1>The Full<br>Protocol</h1>
+    <p>Every product, every schedule, every nuance — explained. The complete week-by-week skincare system with clinical context, application notes, and direct links to every product on Amazon.</p>
+  </div>
+
+  <!-- Weekly Schedule -->
+  <section style="padding:100px 0; border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="fade-up" style="margin-bottom:52px;">
+        <span class="section-label">The Schedule</span>
+        <h2>Weekly Skincare Calendar</h2>
+        <p style="margin-top:14px; max-width:560px;">The sequence and frequency of each treatment matters as much as the ingredients themselves. This is the exact weekly framework from the protocol, structured around skin cycling principles.</p>
+      </div>
+
+      <!-- Morning Schedule -->
+      <h4 style="font-family:var(--font-display); font-size:1.5rem; margin-bottom:20px; color:var(--gold); opacity:0.8;">Morning Routine — Daily</h4>
+      <div class="table-wrap fade-up" style="margin-bottom:52px;">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th style="min-width:140px;">Step</th>
+              <th>Product / Action</th>
+              <th>Frequency</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="day-col">01 — Cleanse</td>
+              <td>Foaming or hydrating cleanser (skin-type matched)</td>
+              <td>Optional (cleanse if oily or post-workout)</td>
+              <td>Night cleanse is mandatory. Morning only if needed.</td>
+            </tr>
+            <tr>
+              <td class="day-col">02 — Vitamin C</td>
+              <td>L-ascorbic acid 15–20% + Vitamin E + Ferulic acid</td>
+              <td>Daily</td>
+              <td>Apply to dry skin. Wait 60–90 seconds before next step.</td>
+            </tr>
+            <tr>
+              <td class="day-col">03 — Azelaic Acid</td>
+              <td>Paula's Choice 10% (or prescription 15–20%)</td>
+              <td>Daily (if pigmentation concern)</td>
+              <td>Skip if no dark spots or redness. Apply after Vitamin C.</td>
+            </tr>
+            <tr>
+              <td class="day-col">04 — Niacinamide</td>
+              <td>La Roche-Posay Mela B3 or The Ordinary 10%</td>
+              <td>Daily</td>
+              <td>Can be skipped if using CeraVe PM as moisturizer (contains 4%).</td>
+            </tr>
+            <tr>
+              <td class="day-col">05 — Moisturizer</td>
+              <td>CeraVe Cream (dry) or LRP Toleriane (oily)</td>
+              <td>Daily</td>
+              <td>Apply to slightly damp skin for best barrier support.</td>
+            </tr>
+            <tr>
+              <td class="day-col">06 — SPF</td>
+              <td>La Roche-Posay Anthelios Mineral SPF 50+</td>
+              <td>When outdoors 10am–4pm</td>
+              <td>Skip if fully indoors. Early morning sun (pre-10am) is fine without SPF.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Evening Schedule -->
+      <h4 style="font-family:var(--font-display); font-size:1.5rem; margin-bottom:20px; color:var(--gold); opacity:0.8;">Evening Routine — Skin Cycling</h4>
+      <div class="table-wrap fade-up" style="margin-bottom:52px;">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th style="min-width:140px;">Night</th>
+              <th>Routine Type</th>
+              <th>Steps</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="day-col">Monday<div class="active-badge">Active</div></td>
+              <td class="active-col">Retinol Night</td>
+              <td>Cleanse → Hyaluronic Acid → Retinol → Azelaic Acid (optional) → CeraVe PM</td>
+              <td>Apply retinol to dry skin. Wait 20 min before moisturizer if sensitive.</td>
+            </tr>
+            <tr>
+              <td class="day-col">Tuesday<div class="recovery-badge">Recovery</div></td>
+              <td class="rest-col">Recovery Night</td>
+              <td>Cleanse → Hyaluronic Acid → Niacinamide serum → Rich moisturizer</td>
+              <td>No actives. Focus on barrier support and hydration recovery.</td>
+            </tr>
+            <tr>
+              <td class="day-col">Wednesday<div class="active-badge">Active</div></td>
+              <td class="active-col">Retinol Night</td>
+              <td>Cleanse → Hyaluronic Acid → Retinol → Azelaic Acid (optional) → CeraVe PM</td>
+              <td>Same as Monday. Consistency over intensity.</td>
+            </tr>
+            <tr>
+              <td class="day-col">Thursday<div class="recovery-badge">Recovery</div></td>
+              <td class="rest-col">Recovery Night</td>
+              <td>Cleanse → Hyaluronic Acid → Niacinamide serum → Rich moisturizer</td>
+              <td>Let the barrier rebuild. Don't push actives every night.</td>
+            </tr>
+            <tr>
+              <td class="day-col">Friday<div class="active-badge">Active</div></td>
+              <td class="active-col">Retinol Night</td>
+              <td>Cleanse → Hyaluronic Acid → Retinol → Azelaic Acid (optional) → CeraVe PM</td>
+              <td>Third active night of the week. Max for most skin types.</td>
+            </tr>
+            <tr>
+              <td class="day-col">Saturday<div class="recovery-badge">Recovery</div></td>
+              <td class="rest-col">Recovery Night</td>
+              <td>Cleanse → Hyaluronic Acid → Niacinamide → Rich moisturizer</td>
+              <td>Optional: face mask or extra hydration treatment.</td>
+            </tr>
+            <tr>
+              <td class="day-col">Sunday<div class="recovery-badge">Recovery</div></td>
+              <td class="rest-col">Recovery Night</td>
+              <td>Cleanse → Hyaluronic Acid → Niacinamide → Rich moisturizer</td>
+              <td>Full recovery before the next Mon–Fri cycle begins.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Advanced Treatments Schedule -->
+      <h4 style="font-family:var(--font-display); font-size:1.5rem; margin-bottom:20px; color:var(--gold); opacity:0.8;">Advanced Treatments — Weekly</h4>
+      <div class="table-wrap fade-up">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Treatment</th>
+              <th>Frequency</th>
+              <th>Duration</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="day-col">Red Light Therapy</td>
+              <td>2–3× per week</td>
+              <td>10–15 minutes</td>
+              <td>48–72hr rest between sessions. Apply copper peptides before session.</td>
+            </tr>
+            <tr>
+              <td class="day-col">Microneedling (0.5mm)</td>
+              <td>Once every 2–4 weeks</td>
+              <td>15–20 minutes</td>
+              <td>SPF required 5–7 days post-treatment. Sterilize device before use.</td>
+            </tr>
+            <tr>
+              <td class="day-col">Facial EMS</td>
+              <td>5× per week</td>
+              <td>20 minutes</td>
+              <td>Do not exceed 20 min. Target cheeks, jaw, forehead, eyes each session.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Product List -->
+  <section style="padding:80px 0 0;">
+    <div class="container">
+      <div class="fade-up" style="margin-bottom:60px;">
+        <span class="section-label">Product Reference</span>
+        <h2>The Complete Product List</h2>
+        <p style="margin-top:14px; max-width:560px;">Every product mentioned in the protocol, with clinical context and direct Amazon links. Organized by routine step.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cleansers -->
+  <div class="product-category">
+    <div class="container">
+      <div class="product-category-header fade-up">
+        <span class="section-label">Step 01</span>
+        <h3>Cleansers</h3>
+        <p>Barrier-supporting cleansers. No sulfates, no fragrances, no soap. Match to your skin type.</p>
+      </div>
+      <div class="grid-2 fade-up">
+        <div class="product-card">
+          <span class="product-tag">Oily / Acne-Prone</span>
+          <div class="product-name">Foaming Facial Cleanser</div>
+          <div class="product-brand">CeraVe</div>
+          <p class="product-desc">Ceramides + hyaluronic acid + niacinamide. Removes excess oil without stripping. Non-comedogenic, fragrance-free. The most-recommended cleanser in dermatology offices.</p>
+          <a href="https://amzn.to/3OfX9Vr" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Oily / Acne-Prone</span>
+          <div class="product-name">Effaclar Purifying Foaming Gel</div>
+          <div class="product-brand">La Roche-Posay</div>
+          <p class="product-desc">Zinc + LHA + niacinamide. Controls sebum and congestion, tested by 25,000+ dermatologists worldwide. Ideal for oily, blemish-prone skin.</p>
+          <a href="https://amzn.to/4bIET0S" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Dry / Sensitive</span>
+          <div class="product-name">Hydrating Facial Cleanser</div>
+          <div class="product-brand">CeraVe</div>
+          <p class="product-desc">Non-foaming formula. Three essential ceramides and hyaluronic acid that cleanse without disrupting the moisture barrier. Rinse-off, but leaves skin comfortable.</p>
+          <a href="https://amzn.to/45Wn4aO" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Dry / Sensitive</span>
+          <div class="product-name">Toleriane Hydrating Gentle Cleanser</div>
+          <div class="product-brand">La Roche-Posay</div>
+          <p class="product-desc">Prebiotic thermal spring water + ceramides + niacinamide. Ultra-gentle, no preservatives in the formula. Developed specifically for reactive, sensitive skin.</p>
+          <a href="https://amzn.to/4rcEIji" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vitamin C -->
+  <div class="product-category" style="background:var(--surface);">
+    <div class="container">
+      <div class="product-category-header fade-up">
+        <span class="section-label">Step 02</span>
+        <h3>Vitamin C Serums</h3>
+        <p>L-ascorbic acid + Vitamin E + ferulic acid. This combination is non-negotiable for stability and effectiveness. Applied every morning.</p>
+      </div>
+      <div class="grid-2 fade-up">
+        <div class="product-card">
+          <span class="product-tag">Gold Standard — Premium</span>
+          <div class="product-name">C E Ferulic Serum</div>
+          <div class="product-brand">SkinCeuticals</div>
+          <p class="product-desc">L-ascorbic acid 15% + Vitamin E 1% + ferulic acid 0.5%. Duke University-patented formula. The exact product used in most landmark clinical trials. Expensive, but nothing delivers more consistent results.</p>
+          <a href="https://amzn.to/4qk6Qzp" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Best Value</span>
+          <div class="product-name">Vitamin C + E + Ferulic Acid Serum 20%</div>
+          <div class="product-brand">Brandefy</div>
+          <p class="product-desc">Dupe-quality Vitamin C serum with same active trio. 20% L-ascorbic acid, slightly stronger than SkinCeuticals. Fraction of the price. Good dark bottle for stability.</p>
+          <a href="https://amzn.to/4aalOSw" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Azelaic Acid -->
+  <div class="product-category">
+    <div class="container">
+      <div class="product-category-header fade-up">
+        <span class="section-label">Step 03 — Conditional</span>
+        <h3>Azelaic Acid</h3>
+        <p>Only if dealing with hyperpigmentation, dark spots, post-acne marks, or redness. Applied morning after Vitamin C.</p>
+      </div>
+      <div class="grid-2 fade-up">
+        <div class="product-card">
+          <span class="product-tag">OTC 10%</span>
+          <div class="product-name">10% Azelaic Acid Booster</div>
+          <div class="product-brand">Paula's Choice</div>
+          <p class="product-desc">Gel-cream hybrid with 10% azelaic acid. Lightweight, absorbs fast, no white cast. The recommended starting point before considering prescription strength.</p>
+          <a href="https://amzn.to/4rxS9tG" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">OTC Budget</span>
+          <div class="product-name">Azelaic Acid 10% Suspension</div>
+          <div class="product-brand">The Ordinary</div>
+          <p class="product-desc">10% azelaic acid in a lightweight suspension. More affordable than Paula's Choice, slightly different texture. Good entry-level option for testing tolerance.</p>
+          <a href="https://amzn.to/4aHYLPB" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Niacinamide -->
+  <div class="product-category" style="background:var(--surface);">
+    <div class="container">
+      <div class="product-category-header fade-up">
+        <span class="section-label">Step 04</span>
+        <h3>Niacinamide</h3>
+        <p>Vitamin B3 at 2–10% depending on skin type. Morning and/or evening. Compatible with all other actives in this protocol.</p>
+      </div>
+      <div class="grid-2 fade-up">
+        <div class="product-card">
+          <span class="product-tag">5% — Sensitive Skin</span>
+          <div class="product-name">Mela B3 Serum</div>
+          <div class="product-brand">La Roche-Posay</div>
+          <p class="product-desc">5% niacinamide + 1% HEPP (a next-gen melanin inhibitor). Specifically formulated for sensitive skin with dark spots. The gentlest starting point.</p>
+          <a href="https://amzn.to/4aiUm55" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">10% + Zinc — Oily Skin</span>
+          <div class="product-name">Niacinamide 10% + Zinc 1%</div>
+          <div class="product-brand">The Ordinary</div>
+          <p class="product-desc">High-strength niacinamide with zinc for sebum control and pore minimization. Best for oily skin or enlarged pores. Do not exceed 10% — no added benefit.</p>
+          <a href="https://amzn.to/3ZXZs1Y" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">4% — Built into Moisturizer</span>
+          <div class="product-name">PM Facial Moisturizing Lotion</div>
+          <div class="product-brand">CeraVe</div>
+          <p class="product-desc">4% niacinamide + ceramides + hyaluronic acid in one evening moisturizer. Simplifies the routine by combining steps 4 and 5. The product the protocol creator uses daily.</p>
+          <a href="https://amzn.to/3ZXZs1Y" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Moisturizers -->
+  <div class="product-category">
+    <div class="container">
+      <div class="product-category-header fade-up">
+        <span class="section-label">Step 05</span>
+        <h3>Moisturizers</h3>
+        <p>Seal in actives and rebuild the lipid barrier. No fragrances, no alcohol — only what your skin actually needs.</p>
+      </div>
+      <div class="grid-2 fade-up">
+        <div class="product-card">
+          <span class="product-tag">Dry / Normal — Rich</span>
+          <div class="product-name">Moisturizing Cream</div>
+          <div class="product-brand">CeraVe</div>
+          <p class="product-desc">Ceramides 1, 3, 6-II + cholesterol + hyaluronic acid. MVE encapsulation for 24-hour release. The reference standard for dry skin barrier repair.</p>
+          <a href="https://amzn.to/4aDuJxi" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Oily / Combination — Light</span>
+          <div class="product-name">Toleriane Double Repair Face Moisturizer</div>
+          <div class="product-brand">La Roche-Posay</div>
+          <p class="product-desc">Ceramide-3 + niacinamide + prebiotic formula. Oil-free, non-comedogenic. Restores the microbiome barrier. Perfect for oily or acne-prone skin that still needs moisture.</p>
+          <a href="https://amzn.to/4aBQ762" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sunscreen -->
+  <div class="product-category" style="background:var(--surface);">
+    <div class="container">
+      <div class="product-category-header fade-up">
+        <span class="section-label">Step 06</span>
+        <h3>Mineral Sunscreens</h3>
+        <p>Mineral only. Zinc oxide or titanium dioxide. Applied when outdoors between 10am and 4pm.</p>
+      </div>
+      <div class="grid-2 fade-up">
+        <div class="product-card">
+          <span class="product-tag">Mineral SPF 50+</span>
+          <div class="product-name">Anthelios Mineral Ultra-Light Fluid SPF 50+</div>
+          <div class="product-brand">La Roche-Posay</div>
+          <p class="product-desc">100% zinc oxide mineral formula. Cell-Ox Shield technology for broad-spectrum UVA/UVB protection. Lightweight fluid finish — no white cast in most skin tones. The recommended daily option.</p>
+          <a href="https://amzn.to/3ZkjN1n" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Tinted Mineral SPF 46</span>
+          <div class="product-name">UV Clear Broad-Spectrum SPF 46</div>
+          <div class="product-brand">EltaMD</div>
+          <p class="product-desc">Zinc oxide + niacinamide. Oil-free, lightly tinted, non-comedogenic. Exceptional for acne-prone and sensitive skin. The dermatologist-favorite alternative.</p>
+          <a href="https://amzn.to/3ZkjN1n" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Retinoids -->
+  <div class="product-category">
+    <div class="container">
+      <div class="product-category-header fade-up">
+        <span class="section-label">Evening — Active Nights</span>
+        <h3>Retinoids</h3>
+        <p>The only ingredient proven to reverse aging at the cellular level. Start with OTC retinol. Upgrade to prescription tretinoin after 3–6 months of consistent use.</p>
+      </div>
+      <div class="grid-2 fade-up">
+        <div class="product-card">
+          <span class="product-tag">Start Here — OTC Retinol</span>
+          <div class="product-name">Resurfacing Retinol Serum</div>
+          <div class="product-brand">CeraVe</div>
+          <p class="product-desc">Encapsulated retinol for controlled, gradual release. Licorice root + niacinamide to buffer irritation. The recommended first retinoid. Build tolerance over 3–6 months before upgrading.</p>
+          <a href="https://amzn.to/4rxS9tG" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Retinol 0.1%</span>
+          <div class="product-name">Granactive Retinoid 2% Emulsion</div>
+          <div class="product-brand">The Ordinary</div>
+          <p class="product-desc">Hydroxypinacolone retinoate — a next-gen retinoid that converts directly to retinoic acid in skin with less irritation than traditional retinol. Good intermediate step.</p>
+          <a href="https://amzn.to/4rxS9tG" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+      </div>
+      <div class="note-box fade-up" style="margin-top:24px; max-width:700px;">
+        <p><strong>Prescription Tretinoin:</strong> After building retinol tolerance (3–6 months), upgrade to tretinoin via a telehealth platform like Curology, Hims, or Apostrophe (~$30/month). Tretinoin is the only clinically validated form of vitamin A that directly activates retinoic acid receptors in the dermis. Even one month of retinol use will cause temporary peeling when starting tretinoin — this is expected and normal.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hyaluronic Acid -->
+  <div class="product-category" style="background:var(--surface);">
+    <div class="container">
+      <div class="product-category-header fade-up">
+        <span class="section-label">Evening — Both Nights</span>
+        <h3>Hyaluronic Acid</h3>
+        <p>Used in the evening before retinol on active nights, and before moisturizer on recovery nights. Maintains hydration while actives work overnight.</p>
+      </div>
+      <div class="grid-2 fade-up">
+        <div class="product-card">
+          <span class="product-tag">Multi-Weight Formula</span>
+          <div class="product-name">Hyaluronic Acid 2% + B5</div>
+          <div class="product-brand">The Ordinary</div>
+          <p class="product-desc">Multiple molecular weights of hyaluronic acid + vitamin B5 for surface and subsurface hydration. A 60-day study showed 96% increase in skin hydration and 40% reduction in fine line depth. Exceptional value.</p>
+          <a href="https://amzn.to/4aecgrf" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+        <div class="product-card">
+          <span class="product-tag">Fragrance-Free</span>
+          <div class="product-name">Pure Hyaluronic Acid Serum</div>
+          <div class="product-brand">TruSkin / Neutrogena Hydro Boost</div>
+          <p class="product-desc">Sodium hyaluronate (smaller molecule, deeper penetration) + hyaluronic acid (surface lock). Fragrance-free, minimal formula for nightly hydration.</p>
+          <a href="https://amzn.to/4aecgrf" target="_blank" class="amazon-link">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            View on Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Micro-optimizations -->
+  <section style="padding:80px 0; border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="fade-up" style="margin-bottom:48px;">
+        <span class="section-label">The Fine Details</span>
+        <h2>Micro-Optimisations</h2>
+        <p style="margin-top:14px; max-width:560px;">Small changes that don't feel like skincare — but quietly compound over months and years.</p>
+      </div>
+      <div class="tips-grid fade-up">
+        <div class="tip-card">
+          <div class="tip-icon">01</div>
+          <h5>Copper Pillowcase</h5>
+          <p>An RCT found sleeping on a copper-oxide pillowcase (≥2% copper) reduced facial wrinkles measurably at 2 and 4 weeks. 7–8 hours of nightly contact compounds over years. Prevents sleep lines from becoming permanent creases.</p>
+          <a href="https://www.amazon.com/s?k=copper+pillowcase+2+percent+oxide" target="_blank" class="amazon-link" style="padding-top:20px; margin-top:16px; display:inline-flex;">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            Shop Copper Pillowcases
+          </a>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">02</div>
+          <h5>Fresh Face Towel</h5>
+          <p>By day 3–4, a face towel has accumulated oil, bacteria, and dead skin cells. Replace your face towel every 2–3 uses — or use disposable cotton face cloths. This directly impacts the bacteria load transferred to freshly cleansed skin.</p>
+          <a href="https://www.amazon.com/s?k=disposable+cotton+face+cloth+pads" target="_blank" class="amazon-link" style="padding-top:20px; margin-top:16px; display:inline-flex;">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            Shop Face Cloths
+          </a>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">03</div>
+          <h5>Bedroom Environment</h5>
+          <p>Optimal bedroom: 20–22°C (68–72°F), 40–60% humidity. CO₂ below 500ppm (crack a window for 10 minutes morning and night). High CO₂ disrupts deep sleep — less deep sleep means less skin repair. A HEPA + activated carbon air purifier if near urban areas or wildfire zones.</p>
+          <a href="https://www.amazon.com/s?k=bedroom+air+purifier+HEPA" target="_blank" class="amazon-link" style="padding-top:20px; margin-top:16px; display:inline-flex;">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+            Shop Purifiers
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">Stratum</a>
+        <p class="footer-note">For educational purposes only. Always consult a dermatologist for medical advice.</p>
+        <ul class="footer-links">
+          <li><a href="surface.html">Routine</a></li>
+          <li><a href="advanced.html">Advanced</a></li>
+          <li><a href="protocol.html">Protocol</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
