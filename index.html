@@ -157,6 +157,22 @@
       margin-bottom: 10px;
     }
     .number-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .number-cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      opacity: 0.5;
+      text-transform: none;
+    }
+    .number-cite a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: opacity 0.2s, text-decoration-color 0.2s;
+    }
+    .number-cite a:hover { opacity: 1; text-decoration-color: currentColor; }
 
     /* ── Quiz Teaser ── */
     .quiz-teaser { padding: 120px 0; }
@@ -250,18 +266,22 @@
         <div class="number-item fade-up">
           <div class="number-val">80%</div>
           <div class="number-label">of visible aging comes from UV — not genetics</div>
+          <span class="number-cite"><a href="https://pubmed.ncbi.nlm.nih.gov/24101874/" target="_blank" rel="noopener">Flament et al., Clin Cosmet Investig Dermatol 2013</a></span>
         </div>
         <div class="number-item fade-up" style="transition-delay:0.1s">
           <div class="number-val">44%</div>
-          <div class="number-label">reduction in fine lines from retinol in 12 weeks</div>
+          <div class="number-label">reduction in fine lines from retinol in 52 weeks</div>
+          <span class="number-cite"><a href="https://pubmed.ncbi.nlm.nih.gov/25738849/" target="_blank" rel="noopener">Randhawa et al., J Drugs Dermatol 2015</a></span>
         </div>
         <div class="number-item fade-up" style="transition-delay:0.2s">
           <div class="number-val">96%</div>
           <div class="number-label">increase in skin hydration from hyaluronic acid</div>
+          <span class="number-cite"><a href="https://pubmed.ncbi.nlm.nih.gov/24688623/" target="_blank" rel="noopener">Jegasothy et al., J Clin Aesthet Dermatol 2014</a></span>
         </div>
         <div class="number-item fade-up" style="transition-delay:0.3s">
           <div class="number-val">8×</div>
           <div class="number-label">Vitamin C effectiveness when paired with E + ferulic acid</div>
+          <span class="number-cite"><a href="https://pubmed.ncbi.nlm.nih.gov/16185284/" target="_blank" rel="noopener">Lin et al., J Invest Dermatol 2005</a></span>
         </div>
       </div>
     </div>
