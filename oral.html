@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Oral Routine — STRATUM</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Rule Cards ── */
+    .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+    .rule-card {
+      padding: 36px 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .rule-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: var(--gold);
+      opacity: 0.18;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .rule-card h4 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 12px; }
+    .rule-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* ── Metric Cards ── */
+    .metrics-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 48px; border: 1px solid var(--border); }
+    .metric-card {
+      padding: 32px 24px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .metric-card:last-child { border-right: none; }
+    .metric-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .metric-name {
+      font-size: 0.67rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .metric-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; }
+    .metric-target {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      padding: 4px 10px;
+    }
+
+    /* ── Checkup schedule ── */
+    .checkup-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    .checkup-card {
+      padding: 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+    .checkup-card-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .checkup-card h4 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 16px; }
+    .checkup-card ul { list-style: none; padding: 0; }
+    .checkup-card ul li {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .checkup-card ul li:last-child { border-bottom: none; }
+    .checkup-card ul li::before { content: ''; display: block; width: 4px; height: 4px; background: var(--gold); opacity: 0.6; flex-shrink: 0; border-radius: 50%; margin-top: 7px; }
+
+    @media (max-width: 1100px) { .metrics-grid { grid-template-columns: repeat(3, 1fr); } .metric-card:nth-child(3) { border-right: none; } .metric-card:nth-child(4), .metric-card:nth-child(5) { border-top: 1px solid var(--border); } }
+    @media (max-width: 960px) {
+      .rules-grid { grid-template-columns: 1fr 1fr; }
+      .checkup-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .rules-grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .metric-card:nth-child(2) { border-right: none; }
+      .metric-card:nth-child(3) { border-top: 1px solid var(--border); border-right: 1px solid var(--border); }
+      .metric-card:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+      .metric-card:nth-child(5) { border-top: 1px solid var(--border); grid-column: 1 / -1; border-right: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Stratum</a>
+    <ul class="nav-links">
+      <li><a href="surface.html">Skin Routine</a></li>
+      <li><a href="oral.html" class="active">Oral Routine</a></li>
+      <li><a href="advanced.html">Advanced</a></li>
+      <li><a href="protocol.html">Protocol</a></li>
+      <li><a href="quiz.html" class="nav-quiz">Start the Quiz</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <p class="page-hero-label">Steps 01 — 05</p>
+    <h1>The Oral<br>Routine</h1>
+    <p>Five precisely ordered steps — built on clinical evidence, not dental marketing. The sequence matters. The technique matters. Together, they form the foundation of a mouth that protects your whole body, not just your teeth.</p>
+  </div>
+
+  <!-- ── STEP 01: FLOSS ── -->
+  <section class="step-section">
+    <div class="container">
+      <div class="step-inner fade-up">
+        <div class="step-content">
+          <div class="step-num-wrap">
+            <div class="step-num">01</div>
+            <span class="step-name">First Step</span>
+          </div>
+          <h2>Flossing</h2>
+          <p><span class="step-strong">Floss before brushing — not after.</span> A 2018 clinical study directly compared the two sequences and found the floss-first group showed significantly greater plaque reduction than the brush-first group. The mechanism is simple: flossing first dislodges interdental plaque and debris, then brushing sweeps it all away.</p>
+          <p>When it comes to floss type, dental tape outperforms both wax floss and super floss for interproximal plaque removal. But technique matters far more than the type you choose — a perfectly executed string floss routine beats lazy water flossing every time.</p>
+          <ul>
+            <li>Wrap floss around middle fingers, control with thumb and pointer</li>
+            <li>Use a gentle saw motion to guide it between teeth</li>
+            <li>Hug each tooth in a C-shape and slide under the gum line</li>
+            <li>Up-and-down motion on both surfaces of every gap</li>
+            <li>Never snap floss aggressively — it cuts gum tissue</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>Dental tape showed the greatest improvement in interproximal plaque scores in a comparative study of floss types, while super floss performed lowest. However, consistency and correct technique remain the dominant factors — the best floss is the one you'll actually use correctly every day.</p>
+            <span class="number-cite" style="display:block;margin-top:10px;">Mazhari et al., <a href="https://pubmed.ncbi.nlm.nih.gov/?term=flossing+before+brushing+plaque+sequence+2018" target="_blank" rel="noopener">J Periodontol 2018</a></span>
+          </div>
+        </div>
+        <div>
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Most Effective</span>
+              <div class="product-name">Oral-B Glide Pro-Health Dental Tape</div>
+              <div class="product-brand">Oral-B</div>
+              <p class="product-desc">Flat dental tape format — shown to outperform wax floss and super floss for interproximal plaque removal. Slides smoothly between tight contacts.</p>
+              <a href="https://amzn.to/3KCLvmd" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Natural Option</span>
+              <div class="product-name">Bamboo Charcoal Dental Floss</div>
+              <div class="product-brand">Natural / Plastic-Free</div>
+              <p class="product-desc">Bamboo fiber floss coated with natural candelilla wax. For those preferring to avoid synthetic materials. Equivalent cleaning when used with correct technique.</p>
+              <a href="https://amzn.to/48WPd2i" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 02: TONGUE SCRAPER ── -->
+  <section class="step-section" style="background:var(--surface);">
+    <div class="container">
+      <div class="step-inner fade-up" style="direction:rtl;">
+        <div class="step-content" style="direction:ltr;">
+          <div class="step-num-wrap">
+            <div class="step-num">02</div>
+            <span class="step-name">Before You Brush</span>
+          </div>
+          <h2>Tongue Scraping</h2>
+          <p>The tongue harbors one of the densest bacterial communities in the entire body. Overnight, these bacteria metabolize amino acids and produce volatile sulfur compounds — the primary cause of bad breath and a direct driver of gum line inflammation. One clinical trial found tongue scraping reduces volatile sulfur compounds by <strong style="color:var(--text)">75%</strong>, while toothbrush-based tongue cleaning only achieved 45%.</p>
+          <p><span class="step-strong">Do this in the morning, before breakfast.</span> Bacterial metabolism peaks overnight — by scraping before eating, you prevent swallowing metabolites that trigger systemic inflammation. Always scrape before brushing so you're not spreading tongue bacteria across clean teeth.</p>
+          <ul>
+            <li>Stick your tongue out as far as possible</li>
+            <li>Place the scraper as far back as you can comfortably reach</li>
+            <li>Gently press down and slowly drag forward to the tip</li>
+            <li>Key word: gently — this is not aggressive scrubbing</li>
+            <li>Rinse and repeat 2–3 times</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>A crossover study comparing metal scrapers, plastic scrapers, and toothbrushes found both metal and plastic scrapers showed equivalent bacterial count reduction, both outperforming toothbrush-based cleaning. Volatile sulfur compound reduction with scraping: 75% vs 45% for brushing alone.</p>
+          </div>
+        </div>
+        <div style="direction:ltr;">
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Best Results</span>
+              <div class="product-name">Textured Tongue Scraper</div>
+              <div class="product-brand">Plastic with Spikes / Ridges</div>
+              <p class="product-desc">Textured surface with small spikes grips and lifts bacterial biofilm more effectively than smooth steel. You can visibly see what's removed — confirmation it's working.</p>
+              <a href="https://amzn.to/4oPCRik" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Steel Option</span>
+              <div class="product-name">Stainless Steel Tongue Scraper</div>
+              <div class="product-brand">Single Flat Blade</div>
+              <p class="product-desc">If choosing steel, a flat single-blade design outperforms the traditional U-shape — it allows more controlled, even pressure across the full tongue surface.</p>
+              <a href="https://amzn.to/4iOzmqS" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 03: BRUSHING ── -->
+  <section class="step-section">
+    <div class="container">
+      <div class="step-inner fade-up">
+        <div class="step-content">
+          <div class="step-num-wrap">
+            <div class="step-num">03</div>
+            <span class="step-name">Core Step</span>
+          </div>
+          <h2>Brushing</h2>
+          <p>Multiple studies confirm oscillating-rotating electric toothbrushes produce a <strong style="color:var(--text)">20% greater reduction</strong> in plaque and gingivitis compared to manual brushing. Within electric types, a 12-week clinical trial found oscillating-rotating brushes outperformed sonic brushes on both measures. The oscillating-rotating mechanism physically disrupts plaque — always choose this over sonic.</p>
+          <p><span class="step-strong">The most overlooked rule: 7.5 seconds per tooth surface.</span> Most people rush and under-brush their inner teeth. The inner surfaces statistically receive the least time — deliberately applying the 7.5-second rule there will make the biggest difference. Studies also show brushing more than twice daily significantly increases enamel loss.</p>
+          <ul>
+            <li>Brush maximum twice daily — over-brushing erodes enamel permanently</li>
+            <li>Apply gentle, not aggressive pressure — gum recession doesn't reverse</li>
+            <li>7.5 seconds per surface, inner teeth especially</li>
+            <li>Change brush head every 3 months — worn bristles cut effectiveness significantly</li>
+            <li>Let the oscillating head do the work; your job is positioning and gentle contact</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>Excessive brushing pressure causes mechanical abrasion of the gingiva — the gum tissue. Over time, this leads to gum recession. Once gum tissue recedes, it does not grow back naturally. The Oral-B iO Series 9 features a pressure sensor that alerts you when you're pressing too hard — one of the most clinically useful features in any consumer dental device.</p>
+            <span class="number-cite" style="display:block;margin-top:10px;">Yaacob et al., <a href="https://pubmed.ncbi.nlm.nih.gov/25513964/" target="_blank" rel="noopener">Cochrane Database Syst Rev 2014</a></span>
+          </div>
+
+          <div style="margin-top:36px;">
+            <h3 style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:16px;">Toothpaste</h3>
+            <p>The fluoride vs. hydroxyapatite debate is nuanced. Over 70 years of fluoride research shows clear cavity reduction — but cumulative ingestion over years from twice-daily brushing becomes a meaningful exposure. Nano-hydroxyapatite, the same mineral your enamel is made of, has been shown in a 2022 RCT to perform similarly to 1450 ppm fluoride toothpaste for preventing early cavities, with a completely different and entirely safe mechanism.</p>
+            <div class="science-box" style="margin-top:20px;">
+              <span class="science-label">How Hydroxyapatite Works</span>
+              <p>Instead of forming a protective fluorapatite layer, nano-hydroxyapatite acts as a direct building block — binding to micro-cracks in enamel and reinforcing them. It remineralizes without any systemic absorption concerns.</p>
+              <span class="number-cite" style="display:block;margin-top:10px;"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=nano+hydroxyapatite+fluoride+toothpaste+randomized+controlled+trial+2022" target="_blank" rel="noopener">RCT: nano-HA vs 1450 ppm fluoride, 2022</a></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="step-products-label">Toothbrush</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Best Value</span>
+              <div class="product-name">Oral-B Vitality Electric Toothbrush</div>
+              <div class="product-brand">Oral-B</div>
+              <p class="product-desc">Oscillating-rotating mechanism proven in clinical trials. Gets you 20% better plaque removal than manual at a fraction of the cost of premium models.</p>
+              <a href="https://amzn.to/44pKRiF" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Best Overall</span>
+              <div class="product-name">iO Series 9 Electric Toothbrush</div>
+              <div class="product-brand">Oral-B</div>
+              <p class="product-desc">Adds real-time pressure sensor, zone tracking, and brushing app. The premium justification isn't the brush mechanism — it's the data feedback that corrects technique. Clinically the most useful upgrade.</p>
+              <a href="https://amzn.to/4abTBfT" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+          <p class="step-products-label" style="margin-top:32px;">Toothpaste</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Nano Hydroxyapatite</span>
+              <div class="product-name">Boka Ela Mint Nano Hydroxyapatite Toothpaste</div>
+              <div class="product-brand">Boka</div>
+              <p class="product-desc">Nano-HA formula shown in RCT to perform comparably to fluoride for early cavity prevention. Fluoride-free, SLS-free, remineralizes by directly rebuilding enamel micro-cracks.</p>
+              <a href="https://amzn.to/48y3a7L" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Natural Option</span>
+              <div class="product-name">Botanique Complete Care Toothpaste</div>
+              <div class="product-brand">Himalaya</div>
+              <p class="product-desc">Neem and pomegranate-based formula. No fluoride, no hydroxyapatite — relies on botanical antimicrobials for plaque control. Best for those wanting the most natural possible option.</p>
+              <a href="https://amzn.to/4aGnPI8" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 04: WATER FLOSSER ── -->
+  <section class="step-section" style="background:var(--surface);">
+    <div class="container">
+      <div class="step-inner fade-up" style="direction:rtl;">
+        <div class="step-content" style="direction:ltr;">
+          <div class="step-num-wrap">
+            <div class="step-num">04</div>
+            <span class="step-name">Sub-Gum Cleaning</span>
+          </div>
+          <h2>Water Flosser</h2>
+          <p>Brushing alone misses nearly <strong style="color:var(--text)">40% of your plaque biofilm</strong> — specifically the subgingival bacteria living beneath the gum line where bristles can't physically reach without damaging tissue. The water flosser disrupts this biofilm through pulsed hydraulic pressure, reaching areas conventional floss cannot.</p>
+          <p>A clinical study found that adding a water flosser to a brush + floss routine produced a <strong style="color:var(--text)">51% greater reduction in gum bleeding</strong> and a 29% greater reduction in plaque index compared to brush + floss alone. Beyond oral health, a 2021 study of type 2 diabetes patients found daily water flosser use reduced systemic CRP levels after 12 weeks — inflammation markers measurable beyond the mouth.</p>
+          <p><span class="step-strong">Use after brushing.</span> Though some researchers recommend before, using it after brushing clears toothpaste residue you'd otherwise swallow — a meaningful long-term consideration given fluoride accumulation data.</p>
+          <ul>
+            <li>Start at the lowest pressure setting — high pressure causes gum bleeding in beginners</li>
+            <li>As gum inflammation reduces over weeks, bleeding stops and you can increase pressure</li>
+            <li>Use a dedicated gum-tip attachment, not just the standard jet tip</li>
+            <li>Add a tongue tip for comprehensive oral coverage</li>
+            <li>Aim the tip at a 90° angle to the gum line and move slowly tooth to tooth</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>Water flossers disrupt the bacterial matrix of biofilm below the gum line — a task conventional floss can't achieve without physically damaging tissue. The pulsation frequency creates hydraulic shear forces that penetrate 6mm beneath the gum margin in clinical measurements.</p>
+            <span class="number-cite" style="display:block;margin-top:10px;"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=water+flosser+waterpik+gum+bleeding+plaque+reduction+clinical" target="_blank" rel="noopener">J Clin Dent — water flosser vs brush+floss</a></span>
+          </div>
+        </div>
+        <div style="direction:ltr;">
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Recommended</span>
+              <div class="product-name">Water Flosser — Adjustable Pressure</div>
+              <div class="product-brand">Waterpik</div>
+              <p class="product-desc">The key feature that matters: adjustable pressure intensity. Start low and build. The most clinically studied water flosser brand with the widest range of tip attachments available.</p>
+              <a href="https://amzn.to/3MyM7d4" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Add-On</span>
+              <div class="product-name">Tongue Cleaner Tip for Waterpik</div>
+              <div class="product-brand">Waterpik</div>
+              <p class="product-desc">Specialized attachment that turns your water flosser into a full tongue irrigator — extends cleaning to your entire oral cavity, not just teeth and gums.</p>
+              <a href="https://amzn.to/4oL8HMX" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 05: OIL PULLING ── -->
+  <section class="step-section">
+    <div class="container">
+      <div class="step-inner fade-up">
+        <div class="step-content">
+          <div class="step-num-wrap">
+            <div class="step-num">05</div>
+            <span class="step-name">Final Step</span>
+          </div>
+          <h2>Oil Pulling</h2>
+          <p>Most mouthwashes use chlorhexidine — a broad-spectrum antibacterial that reduces oral bacteria by over 97% in 24 hours. But a 2016 study found chlorhexidine also kills the beneficial nitrate-reducing bacteria your body depends on for blood pressure regulation. A 2019 study in Free Radical Biology and Medicine found one week of chlorhexidine mouthwash use raised systolic blood pressure by 2–3 mmHg — a meaningful cardiovascular signal from a product marketed as routine dental hygiene.</p>
+          <p>Oil pulling works differently. It doesn't sterilize — it <em>balances</em>. A 2017 trial comparing coconut oil pulling to chlorhexidine found both reduced Streptococcus mutans (the primary cavity-causing bacteria) by equivalent amounts. The difference: oil pulling left beneficial nitrate-reducing bacteria untouched.</p>
+          <ul>
+            <li>Swish 1 tablespoon of oil for 10–20 minutes</li>
+            <li>The oil emulsifies and traps bacteria through fat-binding</li>
+            <li>Spit into a bin — not the sink (oil solidifies in pipes)</li>
+            <li>Do not swallow — the oil contains trapped bacteria and toxins</li>
+            <li>Rinse with water afterward</li>
+          </ul>
+          <div class="science-box">
+            <span class="science-label">The Science</span>
+            <p>Oil pulling works through mechanical emulsification — the fat molecules physically bind to and encapsulate bacteria as you swish, gradually clearing them from oral surfaces. Unlike antibacterial mouthwash, it doesn't disrupt the oral microbiome or enter systemic circulation.</p>
+            <span class="number-cite" style="display:block;margin-top:10px;"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=oil+pulling+coconut+chlorhexidine+streptococcus+mutans+2017" target="_blank" rel="noopener">Oil pulling vs chlorhexidine — Strep mutans, 2017</a></span>
+          </div>
+          <div class="note-box" style="margin-top:20px;">
+            <p><strong>On timing:</strong> Oil pull in the morning before eating — bacterial load peaks overnight and the oil will capture the maximum bacterial concentration before food disrupts the oral environment.</p>
+          </div>
+        </div>
+        <div>
+          <p class="step-products-label">Recommended Products</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="product-card">
+              <span class="product-tag">Best Value</span>
+              <div class="product-name">Pulling Oil — Coconut &amp; Sesame Blend</div>
+              <div class="product-brand">Guru Nanda</div>
+              <p class="product-desc">Coconut and sesame oil blend with added essential oils. Clean formulation without synthetic additives or alcohol. The accessible entry point for daily oil pulling.</p>
+              <a href="https://amzn.to/44pGyUu" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+            <div class="product-card">
+              <span class="product-tag">Premium</span>
+              <div class="product-name">Brilliant Black Oil Pulling</div>
+              <div class="product-brand">Terra &amp; Co.</div>
+              <p class="product-desc">Activated charcoal + Vitamin E added to a coconut oil base. The charcoal enhances binding capacity and adds a whitening effect. For those wanting a more premium experience.</p>
+              <a href="https://amzn.to/4q82RXe" target="_blank" class="amazon-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3H17V9M17 3L9 11M7 5H4a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3"/></svg>
+                View on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 5 ORAL HEALTH RULES ── -->
+  <section style="padding:120px 0; background:var(--surface); border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="fade-up" style="max-width:640px; margin-bottom:16px;">
+        <span class="section-label">Beyond the Routine</span>
+        <h2>5 Rules That Make<br>Your Teeth Stronger</h2>
+      </div>
+      <p class="fade-up" style="max-width:600px; margin-bottom:0; color:var(--text-muted);">The routine cleans. These rules protect. Follow both and enamel stays strong for life.</p>
+
+      <div class="rules-grid">
+        <div class="rule-card fade-up">
+          <div class="rule-num">01</div>
+          <h4>Brush Maximum Twice Daily</h4>
+          <p>Brushing more than twice daily significantly increases enamel loss. Your enamel is like a glass shield — once it erodes, it will never grow back. Twice is optimal; three or more is destructive.</p>
+        </div>
+        <div class="rule-card fade-up" style="transition-delay:0.05s;">
+          <div class="rule-num">02</div>
+          <h4>Wait 30–60 Min After Eating</h4>
+          <p>Food — especially acidic food and drink — temporarily softens your enamel. Brushing immediately is like sanding soft wood. A 2018 study found brushing within 10 minutes of an acidic drink caused up to 60% more enamel erosion versus waiting 30 minutes.</p>
+        </div>
+        <div class="rule-card fade-up" style="transition-delay:0.1s;">
+          <div class="rule-num">03</div>
+          <h4>Protect Your Saliva Flow</h4>
+          <p>Saliva is your mouth's natural defense system — it neutralizes acid, remineralizes enamel, and limits bacterial growth. Dehydration, caffeine, alcohol, and mouth breathing all reduce saliva flow. Stay hydrated and breathe through your nose.</p>
+        </div>
+        <div class="rule-card fade-up" style="transition-delay:0.15s;">
+          <div class="rule-num">04</div>
+          <h4>Limit Sugar Intake</h4>
+          <p>When bacteria digest sugar, they produce lactic acid. Once your mouth pH drops below 5.5, enamel begins to demineralize — it literally dissolves. The issue isn't sugar touching teeth; it's the acid cascade it triggers. Limit frequency, not just quantity.</p>
+        </div>
+        <div class="rule-card fade-up" style="transition-delay:0.2s;">
+          <div class="rule-num">05</div>
+          <h4>Remineralize Actively</h4>
+          <p>Enamel can't heal, but it can remineralize — and that entirely depends on your nutrient status. Calcium provides the building blocks. Vitamin D transports and deposits calcium. Magnesium keeps calcium in balance so it goes to teeth, not arteries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DENTAL CHECKUP PROTOCOL ── -->
+  <section style="padding:120px 0; border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="fade-up" style="max-width:640px; margin-bottom:16px;">
+        <span class="section-label">Prevention</span>
+        <h2>The Dental Checkup<br>Protocol</h2>
+      </div>
+      <p class="fade-up" style="max-width:600px; margin-bottom:60px; color:var(--text-muted);">Getting checked up is one thing. Knowing what the numbers mean is another. These are the only five metrics that matter.</p>
+
+      <div class="fade-up">
+        <div class="checkup-grid">
+          <div class="checkup-card">
+            <span class="checkup-card-label">Annual Schedule</span>
+            <h4>How Often to Go</h4>
+            <ul>
+              <li>Two professional cleanings every year</li>
+              <li>One full exam per year with X-rays, clinical measurements, and oral cancer screening</li>
+              <li>One bite and airway evaluation every 1–2 years</li>
+            </ul>
+          </div>
+          <div class="checkup-card" style="border-color:var(--border-mid);">
+            <span class="checkup-card-label">Why It Matters</span>
+            <h4>The Bite &amp; Airway Exam</h4>
+            <ul>
+              <li>Almost no one requests this — almost everyone needs it</li>
+              <li>Your bite affects breathing mechanics, jaw stability, and head posture</li>
+              <li>Poor bite alignment is a root cause of sleep-disordered breathing</li>
+              <li>Correcting alignment improves nasal airflow and nitric oxide production</li>
+            </ul>
+          </div>
+          <div class="checkup-card">
+            <span class="checkup-card-label">Remineralization</span>
+            <h4>Nutrients for Strong Teeth</h4>
+            <ul>
+              <li>Calcium — the structural building block of enamel and dentin</li>
+              <li>Vitamin D — required for calcium absorption and transport</li>
+              <li>Magnesium — keeps calcium depositing in teeth, not arteries</li>
+              <li>Low sugar + low acid diet to prevent enamel demineralization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Metrics -->
+      <div class="fade-up" style="margin-top:72px;">
+        <h3 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:8px;">The 5 Numbers to Track</h3>
+        <p style="color:var(--text-muted);margin-bottom:0;font-size:0.875rem;">Ask your dentist for these specific measurements at every exam.</p>
+      </div>
+      <div class="metrics-grid fade-up" style="margin-top:28px;">
+        <div class="metric-card">
+          <div class="metric-num">01</div>
+          <div class="metric-name">Plaque Index</div>
+          <p class="metric-desc">Measures how much plaque is adhered to tooth surfaces. Lower = cleaner, less bacterial load, less inflammation.</p>
+          <span class="metric-target">Target: 0</span>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">02</div>
+          <div class="metric-name">Gingival Index</div>
+          <p class="metric-desc">Measures gum inflammation on a 0–4 scale by gum colour. Healthy gum is light pink and does not bleed when touched.</p>
+          <span class="metric-target">Target: 0</span>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">03</div>
+          <div class="metric-name">Pocket Depth</div>
+          <p class="metric-desc">The most critical number. Measures space between tooth and gum. Once deep pockets form, bacteria live there permanently.</p>
+          <span class="metric-target">Target: &lt; 3mm</span>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">04</div>
+          <div class="metric-name">Bone Levels</div>
+          <p class="metric-desc">Measured from X-rays. Bone loss is irreversible. Compare images across visits — any downward trend needs immediate attention.</p>
+          <span class="metric-target">Stable</span>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">05</div>
+          <div class="metric-name">Bite Evaluation</div>
+          <p class="metric-desc">Assesses occlusion and airway. Misalignment drives plaque retention, chewing inefficiency, jaw tension, and sleep-disordered breathing.</p>
+          <span class="metric-target">Every 1–2 yrs</span>
+        </div>
+      </div>
+
+      <div class="note-box fade-up" style="margin-top:36px; max-width:720px;">
+        <p><strong>Pocket depth warning:</strong> 4mm = early gum disease. 5mm or more means bacteria are living beneath your gum line 24 hours a day. This is reversible at 4mm with aggressive intervention, but at 5mm+ bone loss typically begins. Catch it at 3mm.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:80px 0; text-align:center; background:var(--surface); border-top:1px solid var(--border);">
+    <div class="container-sm fade-up">
+      <span class="section-label" style="text-align:center;display:block;">What's Next</span>
+      <h2 style="margin-bottom:20px;">Add the skin layer.</h2>
+      <p style="margin-bottom:44px;">You've built the oral foundation. The surface skin routine follows the same evidence-based logic — six ordered steps that protect, treat, and repair your skin daily.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="surface.html" class="btn btn-primary">The Skin Routine</a>
+        <a href="advanced.html" class="btn btn-outline">Advanced Treatments</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">Stratum</a>
+        <p class="footer-note">For educational purposes only. Always consult a dentist or dermatologist for medical advice.</p>
+        <ul class="footer-links">
+          <li><a href="surface.html">Skin</a></li>
+          <li><a href="oral.html">Oral</a></li>
+          <li><a href="advanced.html">Advanced</a></li>
+          <li><a href="protocol.html">Protocol</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

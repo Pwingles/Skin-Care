@@ -206,6 +206,9 @@
     }
     .mock-opt.sel { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
 
+    /* ── 4-card pillar grid ── */
+    .grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
     @media (max-width: 960px) {
       .hero { padding: 0 28px; padding-top: var(--nav-h); }
       .quiz-teaser-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -213,6 +216,7 @@
       .number-item:nth-child(2) { border-right: none; }
       .number-item:nth-child(3) { border-top: 1px solid var(--border); }
       .number-item:nth-child(4) { border-top: 1px solid var(--border); }
+      .grid-4 { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .numbers-grid { grid-template-columns: 1fr; }
@@ -227,7 +231,8 @@
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">Stratum</a>
     <ul class="nav-links">
-      <li><a href="surface.html">The Routine</a></li>
+      <li><a href="surface.html">Skin Routine</a></li>
+      <li><a href="oral.html">Oral Routine</a></li>
       <li><a href="advanced.html">Advanced</a></li>
       <li><a href="protocol.html">Protocol</a></li>
       <li><a href="quiz.html" class="nav-quiz">Start the Quiz</a></li>
@@ -237,7 +242,7 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-eyebrow">Evidence-Based Skincare</div>
-    <h1>Your skin,<br><em>finally</em> understood.</h1>
+    <h1>Your health,<br><em>finally</em> understood.</h1>
     <p class="hero-sub">A complete protocol built on clinical research — not marketing. No guesswork, no overpriced trends. Just what the science actually supports.</p>
     <div class="hero-actions">
       <a href="quiz.html" class="btn btn-primary">Start Your Quiz</a>
@@ -291,26 +296,32 @@
   <section class="pillars">
     <div class="container">
       <div class="pillars-head fade-up">
-        <span class="section-label">The Protocol</span>
-        <h2>Three layers<br>of skin health</h2>
+        <span class="section-label">The Protocols</span>
+        <h2>Four evidence-based<br>protocols. Zero guesswork.</h2>
       </div>
-      <div class="grid-3">
+      <div class="grid-4">
         <div class="pillar-card fade-up">
           <div class="pillar-num">01</div>
-          <h3>Surface Routine</h3>
-          <p>The foundation. Six precisely ordered steps — cleanse, protect, treat, repair, seal, and defend. Built on the exact ingredients and formulations clinical studies support.</p>
-          <a href="surface.html" class="pillar-link">The Daily Routine</a>
+          <h3>Skin Routine</h3>
+          <p>Six precisely ordered steps — cleanse, protect, treat, repair, seal, and defend. Built on the exact ingredients and formulations clinical studies support.</p>
+          <a href="surface.html" class="pillar-link">The Daily Skin Routine</a>
         </div>
-        <div class="pillar-card fade-up" style="transition-delay:0.1s">
+        <div class="pillar-card fade-up" style="transition-delay:0.08s">
           <div class="pillar-num">02</div>
+          <h3>Oral Routine</h3>
+          <p>Five steps that go far beyond brushing. Backed by clinical evidence on flossing sequence, tongue bacteria, subgingival biofilm, and the real cost of conventional mouthwash.</p>
+          <a href="oral.html" class="pillar-link">The Oral Routine</a>
+        </div>
+        <div class="pillar-card fade-up" style="transition-delay:0.16s">
+          <div class="pillar-num">03</div>
           <h3>Advanced Treatments</h3>
           <p>Go beneath the surface. Red light therapy, microneedling, and EMS — the only methods proven to physically reverse aging at the cellular level, not just mask it.</p>
           <a href="advanced.html" class="pillar-link">Explore Treatments</a>
         </div>
-        <div class="pillar-card fade-up" style="transition-delay:0.2s">
-          <div class="pillar-num">03</div>
+        <div class="pillar-card fade-up" style="transition-delay:0.24s">
+          <div class="pillar-num">04</div>
           <h3>The Full Protocol</h3>
-          <p>Every product, every schedule, every detail. The complete week-by-week plan with Amazon links, so you can start immediately without wasting a single dollar.</p>
+          <p>Every product, every schedule, every detail. The complete plan with Amazon links, so you can start immediately without wasting a single dollar.</p>
           <a href="protocol.html" class="pillar-link">View the Protocol</a>
         </div>
       </div>
@@ -352,7 +363,8 @@
         <a href="index.html" class="footer-logo">Stratum</a>
         <p class="footer-note">For educational purposes only. Always consult a dermatologist for medical advice.</p>
         <ul class="footer-links">
-          <li><a href="surface.html">Routine</a></li>
+          <li><a href="surface.html">Skin</a></li>
+          <li><a href="oral.html">Oral</a></li>
           <li><a href="advanced.html">Advanced</a></li>
           <li><a href="protocol.html">Protocol</a></li>
           <li><a href="quiz.html">Quiz</a></li>
