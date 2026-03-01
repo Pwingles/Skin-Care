@@ -239,6 +239,56 @@ section { padding: 120px 0; }
 .amazon-link:hover { color: var(--gold-light); gap: 14px; }
 .amazon-link svg { width: 13px; height: 13px; flex-shrink: 0; }
 
+/* ── Ingredient / Spec Guide ── */
+.ig-guide {
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.ig-guide-header {
+  font-size: 0.57rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--gold-dim);
+}
+.ig-guide-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.ig-col { padding: 14px 16px; }
+.ig-col + .ig-col { border-left: 1px solid var(--border); }
+.ig-col-label {
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+  display: block;
+}
+.ig-seek .ig-col-label { color: var(--gold); }
+.ig-avoid .ig-col-label { color: var(--text-muted); }
+.ig-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.ig-tag {
+  font-size: 0.62rem;
+  padding: 3px 8px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+.ig-seek .ig-tag {
+  background: rgba(200,169,110,0.07);
+  border: 1px solid rgba(200,169,110,0.18);
+  color: rgba(200,169,110,0.82);
+}
+.ig-avoid .ig-tag {
+  background: rgba(240,237,232,0.02);
+  border: 1px solid rgba(240,237,232,0.07);
+  color: rgba(240,237,232,0.3);
+  text-decoration: line-through;
+  text-decoration-color: rgba(240,237,232,0.15);
+}
+
 /* ── Grids ── */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
